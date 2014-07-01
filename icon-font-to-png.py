@@ -109,9 +109,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
             description="Exports font icons as PNG images.")
 
-    parser.add_argument("ttf-file", type=str,
+    parser.add_argument("ttf_file", metavar="ttf-file", type=str,
         help="The name of the TTF file")
-    parser.add_argument("css-file", type=str,
+    parser.add_argument("css_file", metavar="css-file", type=str,
         help="The name of the CSS file")
     parser.add_argument("icon", type=str, nargs="+",
         help="The name(s) of the icon(s) to export (or \"ALL\" for all icons)")

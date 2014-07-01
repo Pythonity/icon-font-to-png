@@ -11,6 +11,7 @@
 import sys, argparse, re
 from os import path, access, R_OK
 from PIL import Image, ImageFont, ImageDraw
+import tinycss
 
 # Support Unicode literals with both Python 2 and 3
 if sys.version < '3':

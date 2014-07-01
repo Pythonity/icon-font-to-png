@@ -115,5 +115,9 @@ if __name__ == '__main__':
         help="The name of the CSS file")
     parser.add_argument("icon", type=str, nargs="+",
         help="The name(s) of the icon(s) to export (or \"ALL\" for all icons)")
+    parser.add_argument("--keep-prefix", action="store_true", default=False,
+        help="Do not remove common icon prefix")
 
     args = parser.parse_args()
+
+    icons = load_css(args.css_file, not args.keep_prefix)

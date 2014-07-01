@@ -27,6 +27,41 @@ else:
     def uchr(x):
         return chr(x)
 
+def load_css(filename, strip_prefix):
+    new_icons = {}
+    parser = tinycss.make_parser("page3")
+    stylesheet = parser.parse_stylesheet_file(filename)
+
+    common_prefix = None
+
+    is_icon = re.compile(u("\.(.*):before,?"))
+
+    for rule in stylesheet.rules:
+        selector = rule.selector.as_css()
+
+        if not is_icon.match(selector):
+            continue
+
+        if not common_prefix:
+            common_prefix = selector
+        else:
+            common_prefix = path.commonprefix((common_prefix, selector))
+
+        for match in is_icon.finditer(selector):
+            name = match.groups()[0]
+            for declaration in rule.declarations:
+                if declaration.name == u"content":
+                    val = declaration.value.as_css()
+                    if re.match("^['\"].*['\"]$", val):
+                        val = val[1:-1]
+                    new_icons[name] = uchr(int(val[1:], 16))
+
+    if strip_prefix:
+        for name in new_icons.keys():
+            new_icons[name[len(common_prefix)-1:]] = new_icons.pop(name)
+    
+    return new_icons
+
 def export_icon(icon, size, filename, font, color):
     image = Image.new("RGBA", (size, size), color=(0,0,0,0))
 

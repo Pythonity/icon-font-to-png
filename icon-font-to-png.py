@@ -31,7 +31,12 @@ else:
 def load_css(filename, strip_prefix):
     new_icons = {}
     parser = tinycss.make_parser("page3")
-    stylesheet = parser.parse_stylesheet_file(filename)
+    try:
+        stylesheet = parser.parse_stylesheet_file(filename)
+    except IOError:
+        print >> sys.stderr, ("Error: CSS file (%s) can't be opened"
+            % (filename))
+        exit(1)
 
     common_prefix = None
 

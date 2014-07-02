@@ -110,15 +110,15 @@ if __name__ == '__main__':
             description="Exports font icons as PNG images.")
 
     parser.add_argument("ttf_file", metavar="ttf-file", type=str,
-        help="The name of the TTF file")
+        help="the name of the TTF file")
     parser.add_argument("css_file", metavar="css-file", type=str,
-        help="The name of the CSS file")
+        help="the name of the CSS file")
     parser.add_argument("icon", type=str, nargs="+",
-        help="The name(s) of the icon(s) to export (or \"ALL\" for all icons)")
+        help="the name(s) of the icon(s) to export (or \"ALL\" for all icons)")
     parser.add_argument("--list", action="store_true", default=False,
-        help="List available icon names and exit")
+        help="list available icon names and exit")
     parser.add_argument("--keep-prefix", action="store_true", default=False,
-        help="Do not remove common icon prefix")
+        help="do not remove common icon prefix")
 
     args = parser.parse_args()
 

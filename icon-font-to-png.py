@@ -138,5 +138,3 @@ if __name__ == '__main__':
         for icon in sorted(icons.keys()):
             print(icon)
         exit(0)
-
-    export_icon("down", 16, "down.png", args.ttf_file, (0,0,0,0))

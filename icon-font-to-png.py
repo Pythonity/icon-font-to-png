@@ -28,7 +28,11 @@ else:
     def uchr(x):
         return chr(x)
 
+common_prefix = None
+
 def load_css(filename, strip_prefix):
+    global common_prefix
+
     new_icons = {}
     parser = tinycss.make_parser("page3")
     try:
@@ -37,8 +41,6 @@ def load_css(filename, strip_prefix):
         print >> sys.stderr, ("Error: CSS file (%s) can't be opened"
             % (filename))
         exit(1)
-
-    common_prefix = None
 
     is_icon = re.compile(u("\.(.*):before,?"))
 
@@ -49,9 +51,9 @@ def load_css(filename, strip_prefix):
             continue
 
         if not common_prefix:
-            common_prefix = selector
+            common_prefix = selector[1:]
         else:
-            common_prefix = path.commonprefix((common_prefix, selector))
+            common_prefix = path.commonprefix((common_prefix, selector[1:]))
 
         for match in is_icon.finditer(selector):
             name = match.groups()[0]
@@ -64,7 +66,7 @@ def load_css(filename, strip_prefix):
 
     if strip_prefix:
         for name in new_icons.keys():
-            new_icons[name[len(common_prefix)-1:]] = new_icons.pop(name)
+            new_icons[name[len(common_prefix):]] = new_icons.pop(name)
     
     return new_icons
 
@@ -138,3 +140,22 @@ if __name__ == '__main__':
         for icon in sorted(icons.keys()):
             print(icon)
         exit(0)
+
+    if args.icon == [ "ALL" ]:
+        # Export all icons
+        selected_icons = sorted(icons.keys())
+    else:
+        selected_icons = []
+
+        # One or more icon names were given
+        for icon in args.icon:
+            if args.keep_prefix and not icon.startswith(common_prefix):
+                icon = common_prefix + icon
+            elif not args.keep_prefix and icon.startswith(common_prefix):
+                icon = icon[len(common_prefix):]
+
+            if icon in icons:
+                selected_icons.append(icon)
+            else:
+                print >> sys.stderr, "Error: Unknown icon name (%s)" % (icon)
+                exit(1)

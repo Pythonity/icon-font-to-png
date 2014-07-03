@@ -68,13 +68,13 @@ def load_css(filename, strip_prefix):
     
     return new_icons
 
-def export_icon(icon, size, filename, font, color):
+def export_icon(icon, size, filename, ttf_file, color):
     image = Image.new("RGBA", (size, size), color=(0,0,0,0))
 
     draw = ImageDraw.Draw(image)
 
     # Initialize font
-    font = ImageFont.truetype(font, size)
+    font = ImageFont.truetype(ttf_file, size)
 
     # Determine the dimensions of the icon
     width,height = draw.textsize(icons[icon], font=font)

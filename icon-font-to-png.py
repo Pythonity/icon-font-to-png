@@ -73,8 +73,13 @@ def export_icon(icon, size, filename, ttf_file, color):
 
     draw = ImageDraw.Draw(image)
 
-    # Initialize font
-    font = ImageFont.truetype(ttf_file, size)
+    try:
+        # Initialize font
+        font = ImageFont.truetype(ttf_file, size)
+    except IOError:
+        print >> sys.stderr, ("Error: Font file (%s) can't be opened"
+            % (ttf_file))
+        exit(1)
 
     # Determine the dimensions of the icon
     width,height = draw.textsize(icons[icon], font=font)
@@ -133,3 +138,5 @@ if __name__ == '__main__':
         for icon in sorted(icons.keys()):
             print(icon)
         exit(0)
+
+    export_icon("down", 16, "down.png", args.ttf_file, (0,0,0,0))

@@ -17,9 +17,10 @@ Octicons) as PNG images of specified size.
                            icons)
 
     optional arguments:
-      --color COLOR        Color (HTML color code or name, default: black)
-      --filename FILENAME  The name of the output file (it must end with ".png").
-                           If all files are exported, it is used as a prefix.
+      --color COLOR        color (HTML color code or name, default: black)
+      --filename FILENAME  the name of the output file, ending with ".png" (if
+                           multiple icons are exported, the value of this option
+                           is used as a prefix)
       --keep-prefix        do not remove common icon prefix
       --list               list available icon names and exit
-      --size SIZE          Icon size in pixels (default: 16)
+      --size SIZE          icon size in pixels (default: 16)

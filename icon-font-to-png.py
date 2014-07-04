@@ -137,7 +137,7 @@ if __name__ == '__main__':
     parser.add_argument("--list", action="store_true", default=False,
         help="list available icon names and exit")
     parser.add_argument("--size", type=int, default=16,
-        help="Icon size in pixels (default: 16)")
+        help="icon size in pixels (default: 16)")
 
     args = parser.parse_args()
 

@@ -130,8 +130,8 @@ if __name__ == '__main__':
     parser.add_argument("--color", type=str, default="black",
             help="Color (HTML color code or name, default: black)")
     parser.add_argument("--filename", type=str,
-        help="The name of the output file (it must end with \".png\"). If " +
-        "all files are exported, it is used as a prefix.")
+        help="the name of the output file, ending with \".png\" (if " +
+        "all files are exported, it is used as a prefix)")
     parser.add_argument("--keep-prefix", action="store_true", default=False,
         help="do not remove common icon prefix")
     parser.add_argument("--list", action="store_true", default=False,

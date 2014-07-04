@@ -166,3 +166,22 @@ if __name__ == '__main__':
             else:
                 print >> sys.stderr, "Error: Unknown icon name (%s)" % (icon)
                 exit(1)
+
+    # Commence exporting
+    for icon in selected_icons:
+        if len(selected_icons) > 1:
+            # Multiple icons -- treat the filename option as name prefix
+            filename = (args.filename or "") + icon + ".png"
+        else:
+            # One icon
+            if args.filename:
+                # Use the specified filename
+                filename = args.filename
+            else:
+                # Use icon name as filename
+                filename = icon + ".png"
+
+        print("Exporting icon \"%s\" as %s (%ix%i pixels)" %
+            (icon, filename, args.size, args.size))
+
+        export_icon(icon, args.size, filename, args.ttf_file, args.color)

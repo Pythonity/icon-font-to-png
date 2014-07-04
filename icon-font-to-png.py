@@ -130,10 +130,10 @@ if __name__ == '__main__':
     parser.add_argument("--filename", type=str,
             help="The name of the output file (it must end with \".png\"). If " +
             "all files are exported, it is used as a prefix.")
-    parser.add_argument("--list", action="store_true", default=False,
-        help="list available icon names and exit")
     parser.add_argument("--keep-prefix", action="store_true", default=False,
         help="do not remove common icon prefix")
+    parser.add_argument("--list", action="store_true", default=False,
+        help="list available icon names and exit")
 
     args = parser.parse_args()
 

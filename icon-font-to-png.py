@@ -128,7 +128,7 @@ if __name__ == '__main__':
     parser.add_argument("icon", type=str, nargs="+",
         help="the name(s) of the icon(s) to export (or \"ALL\" for all icons)")
     parser.add_argument("--color", type=str, default="black",
-            help="Color (HTML color code or name, default: black)")
+            help="color (HTML color code or name, default: black)")
     parser.add_argument("--filename", type=str,
         help="the name of the output file, ending with \".png\" (if " +
         "all files are exported, it is used as a prefix)")

@@ -69,21 +69,52 @@ def load_css(filename, strip_prefix):
     
     return new_icons, common_prefix
 
-def export_icon(icon, size, filename, ttf_file, color):
+def export_icon(icon, size, filename, ttf_file, color, scale):
     image = Image.new("RGBA", (size, size), color=(0,0,0,0))
 
     draw = ImageDraw.Draw(image)
 
+    if scale == "auto":
+        scale_factor = 1
+    else:
+        scale_factor = float(scale)
+
     try:
         # Initialize font
-        font = ImageFont.truetype(ttf_file, size)
+        font = ImageFont.truetype(ttf_file, int(size * scale_factor))
     except IOError:
         print >> sys.stderr, ("Error: Font file (%s) can't be opened"
             % (ttf_file))
         exit(1)
 
-    # Determine the dimensions of the icon
-    width,height = draw.textsize(icons[icon], font=font)
+    # Determine the desired size for the font.
+    #
+    # If auto-scaling is enabled, we need to make sure the resulting graphic
+    # fits inside the boundary. The values are rounded and may be off by a pixel
+    # or two, so we may need to do a few iterations. The use of a decrementing
+    # multiplication factor protects us from getting into an infinite loop.
+
+    iteration = 0
+    factor = 1
+
+    while True:
+        width, height = draw.textsize(icons[icon], font=font)
+
+        # Not auto-scaling?
+        if scale != "auto":
+            break
+
+        dim = max(width, height)
+        if dim > size:
+            font = ImageFont.truetype(ttf_file, int(size * size/dim * factor))
+        else:
+            # The graphic fits, we're done
+            break
+
+        # Adjust the factor every two iterations
+        iteration += 1
+        if iteration % 2 == 0:
+            factor *= 0.99
 
     draw.text(((size - width) / 2, (size - height) / 2), icons[icon],
             font=font, fill=color)
@@ -127,7 +158,7 @@ if __name__ == '__main__':
     parser.add_argument("icon", type=str, nargs="+",
         help="the name(s) of the icon(s) to export (or \"ALL\" for all icons)")
     parser.add_argument("--color", type=str, default="black",
-            help="color (HTML color code or name, default: black)")
+        help="color (HTML color code or name, default: black)")
     parser.add_argument("--filename", type=str,
         help="the name of the output file, ending with \".png\" (if multiple " +
         "icons are exported, the value of this option is used as a prefix)")
@@ -135,6 +166,9 @@ if __name__ == '__main__':
         help="do not remove common icon prefix")
     parser.add_argument("--list", action="store_true", default=False,
         help="list available icon names and exit")
+    parser.add_argument("--scale", type=str, default="1",
+        help="scale (a scaling factor between 0 and 1, or \"auto\" for " +
+            "automatic scaling, default: 1)")
     parser.add_argument("--size", type=int, default=16,
         help="icon size in pixels (default: 16)")
 
@@ -185,4 +219,5 @@ if __name__ == '__main__':
         print("Exporting icon \"%s\" as %s (%ix%i pixels)" %
             (icon, filename, args.size, args.size))
 
-        export_icon(icon, args.size, filename, args.ttf_file, args.color)
+        export_icon(icon, args.size, filename, args.ttf_file, args.color,
+            args.scale)

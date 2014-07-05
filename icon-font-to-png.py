@@ -28,12 +28,10 @@ else:
     def uchr(x):
         return chr(x)
 
-common_prefix = None
 
 def load_css(filename, strip_prefix):
-    global common_prefix
-
     new_icons = {}
+    common_prefix = None
     parser = tinycss.make_parser("page3")
     try:
         stylesheet = parser.parse_stylesheet_file(filename)
@@ -69,7 +67,7 @@ def load_css(filename, strip_prefix):
         for name in new_icons.keys():
             new_icons[name[len(common_prefix):]] = new_icons.pop(name)
     
-    return new_icons
+    return (new_icons, common_prefix)
 
 def export_icon(icon, size, filename, ttf_file, color):
     image = Image.new("RGBA", (size, size), color=(0,0,0,0))
@@ -142,7 +140,7 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    icons = load_css(args.css_file, not args.keep_prefix)
+    (icons, common_prefix) = load_css(args.css_file, not args.keep_prefix)
 
     if args.list:
         for icon in sorted(icons.keys()):

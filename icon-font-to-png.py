@@ -60,6 +60,7 @@ def load_css(filename, strip_prefix):
             for declaration in rule.declarations:
                 if declaration.name == u"content":
                     val = declaration.value.as_css()
+                    # Strip quotation marks
                     if re.match("^['\"].*['\"]$", val):
                         val = val[1:-1]
                     new_icons[name] = uchr(int(val[1:], 16))
@@ -157,8 +158,10 @@ if __name__ == '__main__':
         # One or more icon names were given
         for icon in args.icon:
             if args.keep_prefix and not icon.startswith(common_prefix):
+                # Prepend icon name with prefix
                 icon = common_prefix + icon
             elif not args.keep_prefix and icon.startswith(common_prefix):
+                # Remove prefix from icon name
                 icon = icon[len(common_prefix):]
 
             if icon in icons:

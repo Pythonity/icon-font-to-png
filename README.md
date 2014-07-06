@@ -6,7 +6,7 @@ Octicons) as PNG images of specified size.
 
 ### Usage
 
-    icon-font-to-png.py [-h] [--color COLOR] [--filename FILENAME]
+    icon_font_to_png.py [-h] [--color COLOR] [--filename FILENAME]
                         [--keep-prefix] [--list] [--size SIZE]
                         ttf-file css-file icon [icon ...]
 

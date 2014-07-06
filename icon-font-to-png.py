@@ -219,5 +219,5 @@ if __name__ == '__main__':
         print("Exporting icon \"%s\" as %s (%ix%i pixels)" %
             (icon, filename, args.size, args.size))
 
-        export_icon(icon, args.size, filename, args.ttf_file, args.color,
-            args.scale)
+        export_icon(icon=icon, size=args.size, filename=filename,
+            ttf_file=args.ttf_file, color=args.color, scale=args.scale)

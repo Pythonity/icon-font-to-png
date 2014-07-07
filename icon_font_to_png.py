@@ -69,7 +69,7 @@ def load_css(filename, strip_prefix):
     
     return new_icons, common_prefix
 
-def export_icon(icon, size, filename, ttf_file, color, scale):
+def export_icon(icons, icon, size, filename, ttf_file, color, scale):
     image = Image.new("RGBA", (size, size), color=(0,0,0,0))
 
     draw = ImageDraw.Draw(image)
@@ -219,5 +219,5 @@ if __name__ == '__main__':
         print("Exporting icon \"%s\" as %s (%ix%i pixels)" %
             (icon, filename, args.size, args.size))
 
-        export_icon(icon=icon, size=args.size, filename=filename,
+        export_icon(icons=icons, icon=icon, size=args.size, filename=filename,
             ttf_file=args.ttf_file, color=args.color, scale=args.scale)

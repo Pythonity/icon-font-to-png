@@ -27,13 +27,21 @@ class TestExportIcon(unittest.TestCase):
             ttf_file='tests/export_icon/size/octicons.ttf', color='black',
             scale=1)
         im = Image.open(png_file)
+        # Check if the image has correct dimensions
         self.assertEqual(im.size, (16, 16))
+        # Check if the image is the same as the reference one
+        self.assertTrue(self.png_equal(png_file,
+            'tests/export_icon/size/squirrel-16.png'))
 
         export_icon(icons=icons, icon='squirrel', size=100, filename=png_file,
             ttf_file='tests/export_icon/size/octicons.ttf', color='black',
             scale=1)
         im = Image.open(png_file)
+        # Check if the image has correct dimensions
         self.assertEqual(im.size, (100, 100))
+        # Check if the image is the same as the reference one
+        self.assertTrue(self.png_equal(png_file,
+            'tests/export_icon/size/squirrel-100.png'))
 
 if __name__ == '__main__':
     unittest.main

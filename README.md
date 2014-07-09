@@ -23,4 +23,6 @@ Octicons) as PNG images of specified size.
                            is used as a prefix)
       --keep-prefix        do not remove common icon prefix
       --list               list available icon names and exit
+      --scale SCALE        scale (a scaling factor between 0 and 1, or "auto" for
+                           automatic scaling, default: 1)
       --size SIZE          icon size in pixels (default: 16)

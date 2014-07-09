@@ -43,5 +43,27 @@ class TestExportIcon(unittest.TestCase):
         self.assertTrue(self.png_equal(png_file,
             'tests/export_icon/size/squirrel-100.png'))
 
+    def test_color(self):
+        icons, prefix = load_css('tests/export_icon/color/test.css',
+            strip_prefix=False)
+
+        png_file = path.join(self.test_dir, 'squirrel.png')
+
+        export_icon(icons=icons, icon='squirrel', size=16, filename=png_file,
+            ttf_file='tests/export_icon/color/octicons.ttf', color='black',
+            scale=1)
+        im = Image.open(png_file)
+        # Check if the image is the same as the reference one
+        self.assertTrue(self.png_equal(png_file,
+            'tests/export_icon/color/squirrel-black.png'))
+
+        export_icon(icons=icons, icon='squirrel', size=16, filename=png_file,
+            ttf_file='tests/export_icon/size/octicons.ttf', color='#123abc',
+            scale=1)
+        im = Image.open(png_file)
+        # Check if the image is the same as the reference one
+        self.assertTrue(self.png_equal(png_file,
+            'tests/export_icon/color/squirrel-123abc.png'))
+
 if __name__ == '__main__':
     unittest.main

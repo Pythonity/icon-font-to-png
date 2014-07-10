@@ -70,8 +70,13 @@ def load_css(filename, strip_prefix):
     return new_icons, common_prefix
 
 def export_icon(icons, icon, size, filename, ttf_file, color, scale):
-    image = Image.new("RGBA", (size, size), color=(0,0,0,0))
+    # If the desired icon size is less than 150x150 pixels, we will first create
+    # a 150x150 pixels image and then scale it down. This way it's much less
+    # likely that the edges of the icon end up cropped.
+    target_size = size
+    size = max(150, target_size)
 
+    image = Image.new("RGBA", (size, size), color=(0,0,0,0))
     draw = ImageDraw.Draw(image)
 
     if scale == "auto":
@@ -116,8 +121,8 @@ def export_icon(icons, icon, size, filename, ttf_file, color, scale):
         if iteration % 2 == 0:
             factor *= 0.99
 
-    draw.text(((size - width) / 2, (size - height) / 2), icons[icon],
-            font=font, fill=color)
+    draw.text(((size - width) / 2, (size - height) / 2), icons[icon], font=font,
+        fill=color)
 
     # Get bounding box
     bbox = image.getbbox()
@@ -143,6 +148,10 @@ def export_icon(icons, icon, size, filename, ttf_file, color, scale):
     # Create output image
     outimage = Image.new("RGBA", (size, size), (0,0,0,0))
     outimage.paste(iconimage, (borderw,borderh))
+
+    # Scale the image to the target size (if necessary)
+    if target_size != size:
+        outimage = outimage.resize((target_size, target_size), Image.ANTIALIAS)
 
     # Save file
     outimage.save(filename)

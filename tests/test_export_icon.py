@@ -63,5 +63,51 @@ class TestExportIcon(unittest.TestCase):
         self.assertTrue(self.png_equal(png_file,
             'tests/export_icon/color/squirrel-123abc.png'))
 
+    def test_scale(self):
+        icons, prefix = load_css('tests/export_icon/scale/test.css',
+            strip_prefix=False)
+
+        png_file = path.join(self.test_dir, 'squirrel.png')
+
+        export_icon(icons=icons, icon='squirrel', size=100, filename=png_file,
+            ttf_file='tests/export_icon/color/octicons.ttf', color='black',
+            scale=1)
+        self.assertTrue(self.png_equal(png_file,
+            'tests/export_icon/scale/squirrel-100-1.png'))
+
+        export_icon(icons=icons, icon='squirrel', size=100, filename=png_file,
+            ttf_file='tests/export_icon/color/octicons.ttf', color='black',
+            scale=0.5)
+        self.assertTrue(self.png_equal(png_file,
+            'tests/export_icon/scale/squirrel-100-05.png'))
+
+        export_icon(icons=icons, icon='squirrel', size=100, filename=png_file,
+            ttf_file='tests/export_icon/color/octicons.ttf', color='black',
+            scale='auto')
+        self.assertTrue(self.png_equal(png_file,
+            'tests/export_icon/scale/squirrel-100-auto.png'))
+
+        # Test with the logo-github icon from the Octicons set (it's wider than
+        # other icons)
+        png_file = path.join(self.test_dir, 'logo-github.png')
+
+        export_icon(icons=icons, icon='logo-github', size=100, filename=png_file,
+            ttf_file='tests/export_icon/color/octicons.ttf', color='black',
+            scale=1)
+        self.assertTrue(self.png_equal(png_file,
+            'tests/export_icon/scale/logo-github-100-1.png'))
+
+        export_icon(icons=icons, icon='logo-github', size=100, filename=png_file,
+            ttf_file='tests/export_icon/color/octicons.ttf', color='black',
+            scale=0.5)
+        self.assertTrue(self.png_equal(png_file,
+            'tests/export_icon/scale/logo-github-100-05.png'))
+
+        export_icon(icons=icons, icon='logo-github', size=100, filename=png_file,
+            ttf_file='tests/export_icon/color/octicons.ttf', color='black',
+            scale='auto')
+        self.assertTrue(self.png_equal(png_file,
+            'tests/export_icon/scale/logo-github-100-auto.png'))
+
 if __name__ == '__main__':
     unittest.main

@@ -52,7 +52,6 @@ class TestExportIcon(unittest.TestCase):
         export_icon(icons=icons, icon='squirrel', size=16, filename=png_file,
             ttf_file='tests/export_icon/color/octicons.ttf', color='black',
             scale=1)
-        im = Image.open(png_file)
         # Check if the image is the same as the reference one
         self.assertTrue(self.png_equal(png_file,
             'tests/export_icon/color/squirrel-black.png'))
@@ -60,7 +59,6 @@ class TestExportIcon(unittest.TestCase):
         export_icon(icons=icons, icon='squirrel', size=16, filename=png_file,
             ttf_file='tests/export_icon/size/octicons.ttf', color='#123abc',
             scale=1)
-        im = Image.open(png_file)
         # Check if the image is the same as the reference one
         self.assertTrue(self.png_equal(png_file,
             'tests/export_icon/color/squirrel-123abc.png'))

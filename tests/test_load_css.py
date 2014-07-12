@@ -6,7 +6,7 @@ from icon_font_to_png import load_css
 class TestLoadCSS(unittest.TestCase):
     def create_css_file(self, contents):
         css_file = tempfile.NamedTemporaryFile()
-        css_file.write(contents)
+        css_file.write(contents.encode('utf-8'))
         css_file.flush()
         return css_file
 

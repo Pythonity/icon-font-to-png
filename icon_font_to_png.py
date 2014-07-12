@@ -156,7 +156,7 @@ def export_icon(icons, icon, size, filename, ttf_file, color, scale):
     # Save file
     outimage.save(filename)
 
-if __name__ == '__main__':
+def run(argv):
     parser = argparse.ArgumentParser(
             description="Exports font icons as PNG images.")
 
@@ -181,7 +181,7 @@ if __name__ == '__main__':
     parser.add_argument("--size", type=int, default=16,
         help="icon size in pixels (default: 16)")
 
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     icons, common_prefix = load_css(args.css_file, not args.keep_prefix)
 
@@ -230,3 +230,6 @@ if __name__ == '__main__':
 
         export_icon(icons=icons, icon=icon, size=args.size, filename=filename,
             ttf_file=args.ttf_file, color=args.color, scale=args.scale)
+
+if __name__ == '__main__':
+    run(sys.argv[1:])

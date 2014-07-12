@@ -123,8 +123,8 @@ def export_icon(icons, icon, size, filename, ttf_file, color, scale):
         if iteration % 2 == 0:
             factor *= 0.99
 
-    draw.text(((size - width) / 2, (size - height) / 2), icons[icon], font=font,
-        fill=color)
+    draw.text((float(size - width) / 2, float(size - height) / 2), icons[icon],
+        font=font, fill=color)
 
     # Get bounding box
     bbox = image.getbbox()
@@ -134,8 +134,8 @@ def export_icon(icons, icon, size, filename, ttf_file, color, scale):
     drawmask = ImageDraw.Draw(imagemask)
 
     # Draw the icon on the mask
-    drawmask.text(((size - width) / 2, (size - height) / 2), icons[icon],
-        font=font, fill=255)
+    drawmask.text((float(size - width) / 2, float(size - height) / 2),
+        icons[icon], font=font, fill=255)
 
     # Create a solid color image and apply the mask
     iconimage = Image.new("RGBA", (size,size), color)

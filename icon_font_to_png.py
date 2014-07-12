@@ -30,7 +30,7 @@ else:
 
 
 def load_css(filename, strip_prefix):
-    new_icons = {}
+    icons = {}
     common_prefix = None
     parser = tinycss.make_parser("page3")
     try:
@@ -61,13 +61,15 @@ def load_css(filename, strip_prefix):
                     # Strip quotation marks
                     if re.match("^['\"].*['\"]$", val):
                         val = val[1:-1]
-                    new_icons[name] = uchr(int(val[1:], 16))
+                    icons[name] = uchr(int(val[1:], 16))
 
     if strip_prefix:
-        for name in new_icons.keys():
-            new_icons[name[len(common_prefix):]] = new_icons.pop(name)
+        nonprefixed_icons = {}
+        for name in icons.keys():
+            nonprefixed_icons[name[len(common_prefix):]] = icons[name]
+        icons = nonprefixed_icons
     
-    return new_icons, common_prefix
+    return icons, common_prefix
 
 def export_icon(icons, icon, size, filename, ttf_file, color, scale):
     # If the desired icon size is less than 150x150 pixels, we will first create

@@ -1,4 +1,4 @@
-import atexit, shutil, tempfile
+import shutil, tempfile
 from os import path
 import unittest
 from PIL import Image, ImageChops
@@ -9,8 +9,10 @@ class TestExportIcon(unittest.TestCase):
     def setUp(self):
         # Create a temporary directory
         self.test_dir = tempfile.mkdtemp()
-        # Remove it when we're done
-        atexit.register(shutil.rmtree, self.test_dir)
+
+    def tearDown(self):
+        # Remove the temporary directory when we're done
+        shutil.rmtree(self.test_dir)
 
     def png_equal(self, png_file1, png_file2):
         im1 = Image.open(png_file1)

@@ -48,7 +48,7 @@ def load_css(filename, strip_prefix):
         if not is_icon.match(selector):
             continue
 
-        if not common_prefix:
+        if common_prefix is None:
             common_prefix = selector[1:]
         else:
             common_prefix = path.commonprefix((common_prefix, selector[1:]))
@@ -63,12 +63,14 @@ def load_css(filename, strip_prefix):
                         val = val[1:-1]
                     icons[name] = uchr(int(val[1:], 16))
 
-    if strip_prefix:
+    common_prefix = common_prefix or ''
+
+    if strip_prefix and len(common_prefix) > 0:
         nonprefixed_icons = {}
         for name in icons.keys():
             nonprefixed_icons[name[len(common_prefix):]] = icons[name]
         icons = nonprefixed_icons
-    
+
     return icons, common_prefix
 
 def export_icon(icons, icon, size, filename, ttf_file, color, scale):

@@ -1,5 +1,7 @@
+import glob
+import os
 import sys
-import tempfile
+import shutil, tempfile
 import unittest
 
 try:
@@ -10,6 +12,14 @@ except ImportError:
 import icon_font_to_png
 
 class TestRun(unittest.TestCase):
+    def setUp(self):
+        # Create a temporary directory
+        self.test_dir = tempfile.mkdtemp()
+
+    def tearDown(self):
+        # Remove the temporary directory when we're done
+        shutil.rmtree(self.test_dir)
+
     def create_css_file(self, contents):
         css_file = tempfile.NamedTemporaryFile()
         css_file.write(contents.encode('utf-8'))
@@ -61,6 +71,58 @@ class TestRun(unittest.TestCase):
         )
 
         sys.stdout = orig_stdout
+
+    def test_icon(self):
+        css_file = self.create_css_file(
+            ".beer:before { content: '\\f069' }\n"
+            ".squirrel:before { content: '\\f0b2' }\n"
+            ".zap:before { content: '\\26A1' }\n"
+        )
+
+        this_dir = os.getcwd()
+
+        os.chdir(self.test_dir)
+
+        # Export one icon
+        icon_font_to_png.run([
+            os.path.join(this_dir, 'tests/run/icon/octicons.ttf'),
+            css_file.name,
+            'beer'
+        ]);
+        
+        self.assertTrue(os.path.isfile('beer.png'))
+
+        for f in glob.glob(os.path.join('*.png')):
+            os.remove(f)
+
+        # Export two icons
+        icon_font_to_png.run([
+            os.path.join(this_dir, 'tests/run/icon/octicons.ttf'),
+            css_file.name,
+            'beer', 'squirrel'
+        ]);
+        
+        self.assertTrue(os.path.isfile('beer.png'))
+        self.assertTrue(os.path.isfile('squirrel.png'))
+
+        for f in glob.glob(os.path.join('*.png')):
+            os.remove(f)
+
+        # Export all icons
+        icon_font_to_png.run([
+            os.path.join(this_dir, 'tests/run/icon/octicons.ttf'),
+            css_file.name,
+            'ALL'
+        ]);
+        
+        self.assertTrue(os.path.isfile('beer.png'))
+        self.assertTrue(os.path.isfile('squirrel.png'))
+        self.assertTrue(os.path.isfile('zap.png'))
+
+        for f in glob.glob(os.path.join('*.png')):
+            os.remove(f)
+
+        os.chdir(this_dir)
 
 if __name__ == '__main__':
     unittest.main

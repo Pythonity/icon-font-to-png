@@ -20,8 +20,7 @@ class TestRun(unittest.TestCase):
         orig_stderr = sys.stderr
         sys.stderr = StringIO()
 
-        self.assertRaises(SystemExit, icon_font_to_png.run,
-            ['icon_font_to_png.py'])
+        self.assertRaises(SystemExit, icon_font_to_png.run, [])
         
         err = sys.stderr.getvalue().strip()
         self.assertRegexpMatches(err, '^usage: .*')

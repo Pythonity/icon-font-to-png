@@ -9,6 +9,8 @@ try:
 except ImportError:
     from io import StringIO
 
+from tests.test_common import create_css_file
+
 import icon_font_to_png
 
 class TestRun(unittest.TestCase):
@@ -19,12 +21,6 @@ class TestRun(unittest.TestCase):
     def tearDown(self):
         # Remove the temporary directory when we're done
         shutil.rmtree(self.test_dir)
-
-    def create_css_file(self, contents):
-        css_file = tempfile.NamedTemporaryFile()
-        css_file.write(contents.encode('utf-8'))
-        css_file.flush()
-        return css_file
 
     def test_usage(self):
         orig_stderr = sys.stderr
@@ -38,7 +34,7 @@ class TestRun(unittest.TestCase):
         sys.stderr = orig_stderr
 
     def test_list(self):
-        css_file = self.create_css_file(
+        css_file = create_css_file(
             ".foo-xyzzy:before { content: '\\f003' }\n"
             ".foo-baz:before { content: '\\f002' }\n"
             ".foo-bar:before { content: '\\f001' }\n"
@@ -73,7 +69,7 @@ class TestRun(unittest.TestCase):
         sys.stdout = orig_stdout
 
     def test_icon(self):
-        css_file = self.create_css_file(
+        css_file = create_css_file(
             ".beer:before { content: '\\f069' }\n"
             ".squirrel:before { content: '\\f0b2' }\n"
             ".zap:before { content: '\\26A1' }\n"
@@ -125,7 +121,7 @@ class TestRun(unittest.TestCase):
         os.chdir(this_dir)
 
     def test_filename(self):
-        css_file = self.create_css_file(
+        css_file = create_css_file(
             ".beer:before { content: '\\f069' }\n"
             ".squirrel:before { content: '\\f0b2' }\n"
             ".zap:before { content: '\\26A1' }\n"

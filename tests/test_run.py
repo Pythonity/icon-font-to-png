@@ -124,5 +124,45 @@ class TestRun(unittest.TestCase):
 
         os.chdir(this_dir)
 
+    def test_filename(self):
+        css_file = self.create_css_file(
+            ".beer:before { content: '\\f069' }\n"
+            ".squirrel:before { content: '\\f0b2' }\n"
+            ".zap:before { content: '\\26A1' }\n"
+        )
+
+        this_dir = os.getcwd()
+
+        os.chdir(self.test_dir)
+
+        # Export one icon
+        icon_font_to_png.run([
+            os.path.join(this_dir, 'tests/run/icon/octicons.ttf'),
+            css_file.name,
+            'beer',
+            '--filename', 'beverage.png'
+        ]);
+        
+        self.assertTrue(os.path.isfile('beverage.png'))
+
+        for f in glob.glob(os.path.join('*.png')):
+            os.remove(f)
+
+        # Export multiple icons
+        icon_font_to_png.run([
+            os.path.join(this_dir, 'tests/run/icon/octicons.ttf'),
+            css_file.name,
+            'beer', 'squirrel',
+            '--filename', 'foo'
+        ]);
+        
+        self.assertTrue(os.path.isfile('foobeer.png'))
+        self.assertTrue(os.path.isfile('foosquirrel.png'))
+
+        for f in glob.glob(os.path.join('*.png')):
+            os.remove(f)
+
+        os.chdir(this_dir)
+
 if __name__ == '__main__':
     unittest.main

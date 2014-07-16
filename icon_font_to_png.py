@@ -168,22 +168,24 @@ def run(argv):
         help="the name of the TTF file")
     parser.add_argument("css_file", metavar="css-file", type=str,
         help="the name of the CSS file")
-    parser.add_argument("icon", type=str, nargs="+",
+    exp_group = parser.add_argument_group('exporting icons')
+    exp_group.add_argument("icon", type=str, nargs="*",
         help="the name(s) of the icon(s) to export (or \"ALL\" for all icons)")
-    parser.add_argument("--color", type=str, default="black",
+    exp_group.add_argument("--color", type=str, default="black",
         help="color (HTML color code or name, default: black)")
-    parser.add_argument("--filename", type=str,
+    exp_group.add_argument("--filename", type=str,
         help="the name of the output file, ending with \".png\" (if multiple " +
         "icons are exported, the value of this option is used as a prefix)")
-    parser.add_argument("--keep-prefix", action="store_true", default=False,
+    exp_group.add_argument("--keep-prefix", action="store_true", default=False,
         help="do not remove common icon prefix")
-    parser.add_argument("--list", action="store_true", default=False,
-        help="list available icon names and exit")
-    parser.add_argument("--scale", type=str, default="1",
+    exp_group.add_argument("--scale", type=str, default="1",
         help="scale (a scaling factor between 0 and 1, or \"auto\" for " +
             "automatic scaling, default: 1)")
-    parser.add_argument("--size", type=int, default=16,
+    exp_group.add_argument("--size", type=int, default=16,
         help="icon size in pixels (default: 16)")
+    list_group = parser.add_argument_group('listing icon names')
+    list_group.add_argument("--list", action="store_true", default=False,
+        help="list available icon names and exit")
 
     args = parser.parse_args(argv)
 
@@ -193,6 +195,11 @@ def run(argv):
         for icon in sorted(icons.keys()):
             print(icon)
         exit(0)
+
+    if not args.icon:
+        # No icon name specified, and no --list
+        parser.print_usage()
+        exit(1)
 
     if args.icon == [ "ALL" ]:
         # Export all icons

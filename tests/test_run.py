@@ -44,7 +44,7 @@ class TestRun(unittest.TestCase):
         sys.stdout = StringIO()
 
         self.assertRaisesRegexp(SystemExit, '^0', 
-            icon_font_to_png.run, ['foo.ttf', css_file.name, 'bar', '--list'])
+            icon_font_to_png.run, ['foo.ttf', css_file.name, '--list'])
 
         out = sys.stdout.getvalue()
         self.assertEqual(out,
@@ -56,7 +56,7 @@ class TestRun(unittest.TestCase):
         sys.stdout = StringIO()
 
         self.assertRaisesRegexp(SystemExit, '^0',
-            icon_font_to_png.run, ['foo.ttf', css_file.name, 'bar', '--list',
+            icon_font_to_png.run, ['foo.ttf', css_file.name, '--list',
                 '--keep-prefix'])
 
         out = sys.stdout.getvalue()

@@ -1,0 +1,2 @@
+.foo-bar:before { content: '\f001' }
+.foo-test:before { content: '\f002' }

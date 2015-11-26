@@ -1,0 +1,29 @@
+#!/usr/bin/env python
+
+import os
+import sys
+
+try:
+    # Installed system wide
+    from icon_font_to_png import command_line
+except ImportError:
+    # Locally
+    sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+    from icon_font_to_png import command_line
+
+
+if __name__ == '__main__':
+    # TODO: Download only once, and load after?
+    # Download Font Awesome to temp directory
+    font_awesome = command_line.download_icon_font('font-awesome',
+                                                   directory=None)
+
+    # Append paths to Font Awesome files
+    args = sys.argv[1:]
+    args.append('--css')
+    args.append(font_awesome.css_path)
+    args.append('--ttf')
+    args.append(font_awesome.ttf_path)
+
+    # Execute original script
+    command_line.run(args)

@@ -1,0 +1,14 @@
+include *.md
+include *.py
+include *.txt
+include LICENSE
+include tests
+include tox.ini
+recursive-include icon_font_to_png *.css
+recursive-include icon_font_to_png *.py
+recursive-include icon_font_to_png *.ttf
+recursive-include requirements *.txt
+recursive-include tests *.css
+recursive-include tests *.png
+recursive-include tests *.py
+recursive-include tests *.ttf

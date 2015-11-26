@@ -1,0 +1,3 @@
+.foo:before { content: '\f001' }
+.bar:before { content: '\f002' }
+

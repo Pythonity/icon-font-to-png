@@ -51,7 +51,7 @@ setup(
     name='icon_font_to_png',
     url='https://github.com/Pythonity/icon-font-to-png',
     version='0.1.3',
-    license='MIT',
+    license='MIT License',
     author='Pythonity',
     author_email=' pythonity@pythonity.com',
     description='Python script for exporting icons from icon font '
@@ -66,4 +66,17 @@ setup(
     },
     scripts=['bin/font-awesome-to-png', 'bin/icon-font-to-png'],
     keywords='icon font export',
+    classifiers=[
+        'Development Status :: 4 - Beta',
+        'Environment :: Console',
+        'Intended Audience :: End Users/Desktop',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
+        'Topic :: Utilities',
+    ],
 )

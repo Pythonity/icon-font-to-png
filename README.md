@@ -83,5 +83,5 @@ To run tests yourself, just run `tox` inside repository.
 ## Authors
 Developed and maintained by [Pythonity](http://pythonity.com/)
 
-Originally version by [Michał Wojciechowski](https://github.com/odyniec), 
+Original version by [Michał Wojciechowski](https://github.com/odyniec), 
 refactored by [Paweł Adamczak](https://github.com/pawelad)

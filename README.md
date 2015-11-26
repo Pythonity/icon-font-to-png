@@ -1,4 +1,7 @@
 # Icon Font to PNG
+![PyPI](https://img.shields.io/pypi/v/icon_font_to_png.svg)
+![PyPI](https://img.shields.io/github/license/Pythonity/icon-font-to-png.svg)
+
 Python (2 & 3 compatible) script for exporting icons from icon font
 (e.g. Font Awesome, Octicons) as PNG images. It also comes with
 `font-awesome-to-png` script for backward compatibility.

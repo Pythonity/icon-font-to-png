@@ -10,6 +10,9 @@ Feel free to use, ask, fork, report bugs, fix them, suggest enhancements
 and point out any mistakes.
 
 ## Installation
+Make sure you have required packages for 
+[Pillow installation](https://pillow.readthedocs.org/en/3.0.x/installation.html).
+
 With `pip` (recommended):
 ```
 $ pip install icon_font_to_png

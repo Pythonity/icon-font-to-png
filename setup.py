@@ -50,7 +50,7 @@ else:
 setup(
     name='icon_font_to_png',
     url='https://github.com/Pythonity/icon-font-to-png',
-    version='0.1.2',
+    version='0.1.3',
     license='MIT',
     author='Pythonity',
     author_email=' pythonity@pythonity.com',

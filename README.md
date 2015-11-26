@@ -69,8 +69,7 @@ Export 'play' and 'stop' icons, size 64x64:
 Export all icons in blue:  
 `$ icon-font-to-png --css font-awesome.css --ttf fontawesome-webfont.ttf --color blue ALL`
 
-Or alternatively you can use `font_awesome_to_png.py`
-and skip `--css` and `--ttf` parameters (everything else works the same):  
+Or you can use `font-awesome-to-png`, which works analogously:  
 `$ font-awesome-to-png ALL`
 
 ## Tests

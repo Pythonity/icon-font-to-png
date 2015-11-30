@@ -7,15 +7,10 @@ Python (2 & 3 compatible) script for exporting icons from icon font
 (e.g. Font Awesome, Octicons) as PNG images. It also comes with
 `font-awesome-to-png` script for backward compatibility.
 
-Packages required for running  and testing are listed in 
-`requirements` directory.
-
-Feel free to use, ask, fork, report bugs, fix them, suggest enhancements
-and point out any mistakes.
+Packages required for running  and testing are listed in `requirements` directory.
 
 ## Installation
-Make sure you have required packages for 
-[Pillow installation](https://pillow.readthedocs.org/en/3.0.x/installation.html).
+Make sure you have required packages for [Pillow installation](https://pillow.readthedocs.org/en/3.0.x/installation.html).
 
 With `pip` (recommended):
 ```
@@ -84,8 +79,14 @@ Package was tested with `tox` on Python 2.7 and Python 3.4 (see `tox.ini`).
 
 To run tests yourself, just run `tox` inside repository.
 
+## Contributions
+Package source code is available at [GitHub](https://github.com/Pythonity/icon-font-to-png).
+
+Feel free to use, ask, fork, star, report bugs, fix them, suggest enhancements
+and point out any mistakes.
+
 ## Authors
-Developed and maintained by [Pythonity](http://pythonity.com/)
+Developed and maintained by [Pythonity](http://pythonity.com/).
 
 Original version by [Michał Wojciechowski](https://github.com/odyniec), 
-refactored by [Paweł Adamczak](https://github.com/pawelad)
+refactored by [Paweł Adamczak](https://github.com/pawelad).

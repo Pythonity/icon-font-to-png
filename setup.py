@@ -35,7 +35,7 @@ except (IOError, ImportError):
     description = ''
 
 
-# Requirements based on Python verison
+# Requirements based on Python version
 if sys.version_info >= (3, 0):
     # Python 3
     install_requires = ['pillow>=3.0.0',
@@ -50,7 +50,7 @@ else:
 setup(
     name='icon_font_to_png',
     url='https://github.com/Pythonity/icon-font-to-png',
-    version='0.1.4',
+    version='0.1.5',
     license='MIT License',
     author='Pythonity',
     author_email=' pythonity@pythonity.com',

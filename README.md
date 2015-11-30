@@ -1,5 +1,6 @@
 # Icon Font to PNG
 [![Version](https://img.shields.io/pypi/v/icon_font_to_png.svg)](https://pypi.python.org/pypi/icon_font_to_png)
+[![Downloads](https://img.shields.io/pypi/dm/icon_font_to_png.svg)](https://pypi.python.org/pypi/icon_font_to_png)
 [![License](https://img.shields.io/github/license/Pythonity/icon-font-to-png.svg)](https://github.com/Pythonity/icon-font-to-png/blob/master/LICENSE)
 [![Build](https://img.shields.io/travis/Pythonity/icon-font-to-png.svg)](https://travis-ci.org/Pythonity/icon-font-to-png)
 

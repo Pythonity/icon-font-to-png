@@ -50,11 +50,11 @@ else:
 setup(
     name='icon_font_to_png',
     url='https://github.com/Pythonity/icon-font-to-png',
-    version='0.1.5',
+    version='0.2.0',
     license='MIT License',
     author='Pythonity',
     author_email=' pythonity@pythonity.com',
-    description='Python script for exporting icons from icon font '
+    description='Python library for exporting icons from icon fonts '
                 '(e.g. Font Awesome, Octicons) as PNG images.',
     long_description=description,
     packages=['icon_font_to_png'],

@@ -17,7 +17,7 @@ def run(arguments):
     )
     parser.add_argument(
         '--download',
-        choices=[x for x in AVAILABLE_ICONS.keys()],
+        choices=[x for x in AVAILABLE_ICON_FONTS.keys()],
         help="download latest icon font and exit"
     )
 
@@ -152,7 +152,7 @@ def run(arguments):
 # Isolated for use in wrapper scripts
 def download_icon_font(icon_font, directory):
     try:
-        return AVAILABLE_ICONS[icon_font](directory=directory)
+        return AVAILABLE_ICON_FONTS[icon_font](directory=directory)
     except KeyError:
         raise Exception("We don't support downloading font '{name}'".format(
             name=icon_font)

@@ -34,9 +34,9 @@ class IconFontDownloader(with_metaclass(ABCMeta)):
         self.ttf_path = self.download_ttf(directory)
 
     @staticmethod
-    def _download_file_from_url(url, directory):
+    def _download_file_from_url(url, directory=None):
         """
-        Downloads file from given URL
+        Download file from given URL and save it in given directory
 
         :param url: URL of file
         :param directory: path to download directory
@@ -47,8 +47,7 @@ class IconFontDownloader(with_metaclass(ABCMeta)):
             return urlretrieve(url)[0]
         else:
             # Get the filename from URL
-            css_filename = os.path.join(directory,
-                                        url.split('/')[-1])
+            css_filename = os.path.join(directory, url.split('/')[-1])
             return urlretrieve(url, filename=css_filename)[0]
 
     def download_css(self, directory):
@@ -84,6 +83,8 @@ class OcticonsDownloader(IconFontDownloader):
                'octicons/master/octicons/octicons.ttf')
 
 
-# List of implemented icon font download classes
-AVAILABLE_ICONS = {'font-awesome': FontAwesomeDownloader,
-                   'octicons': OcticonsDownloader}
+# List of implemented icon font downloader classes
+AVAILABLE_ICON_FONTS = {
+    'font-awesome': FontAwesomeDownloader,
+    'octicons': OcticonsDownloader
+}

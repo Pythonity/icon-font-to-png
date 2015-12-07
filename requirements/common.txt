@@ -1,3 +1,4 @@
 pillow
 tinycss
 six
+requests

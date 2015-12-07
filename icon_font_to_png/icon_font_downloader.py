@@ -1,8 +1,9 @@
 from __future__ import unicode_literals
 
-from abc import ABCMeta, abstractmethod
 import os
+from abc import ABCMeta, abstractmethod
 
+import requests
 from six import with_metaclass, PY3
 
 if PY3:
@@ -51,6 +52,20 @@ class IconFontDownloader(with_metaclass(ABCMeta)):
             css_filename = os.path.join(directory, url.split('/')[-1])
             return urlretrieve(url, filename=css_filename)[0]
 
+    @staticmethod
+    def _get_latest_tag_from_github(repo_api_url):
+        """Get latest icon font tag via GitHub API"""
+        url = '/'.join([repo_api_url, 'tags'])
+        r = requests.get(url)
+        latest = r.json()[0]
+
+        return latest['name']
+
+    @abstractmethod
+    def get_latest_version_number(self):
+        """Get latest icon font version number"""
+        pass
+
     def download_css(self, directory):
         """Downloads icon font CSS file and returns its path"""
         return self._download_file_from_url(self.css_url, directory)
@@ -76,6 +91,11 @@ class FontAwesomeDownloader(IconFontDownloader):
     ttf_url = ('https://raw.githubusercontent.com/FortAwesome/'
                'Font-Awesome/master/fonts/fontawesome-webfont.ttf')
 
+    def get_latest_version_number(self):
+        return self._get_latest_tag_from_github(
+            'https://api.github.com/repos/FortAwesome/Font-Awesome'
+        )
+
 
 class OcticonsDownloader(IconFontDownloader):
     """
@@ -87,6 +107,11 @@ class OcticonsDownloader(IconFontDownloader):
                'octicons/master/octicons/octicons.css')
     ttf_url = ('https://raw.githubusercontent.com/github/'
                'octicons/master/octicons/octicons.ttf')
+
+    def get_latest_version_number(self):
+        return self._get_latest_tag_from_github(
+            'https://api.github.com/repos/github/octicons'
+        )
 
 
 # List of implemented icon font downloader classes

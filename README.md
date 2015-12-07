@@ -6,10 +6,14 @@
 
 Python library made for easy and simple export of icons from web icon
 fonts (e.g. Font Awesome, Octicons) as PNG images. It comes with a shell script
-wrapping its functionality, but can also be imported and used directly in your
-Python project.
+wrapping its functionality, which is it's main focus, but can also be imported
+and used directly in your Python project.
+
 There's also '`font-awesome-to-png` script for backwards compatibility with the
 [first](https://github.com/odyniec/font-awesome-to-png) iteration of the concept.
+
+Package is considered to be in beta status and no backwards compatibility
+(if you use it inside your project) between (minor) versions is provided.
 
 Packages required for running  and testing are listed in `requirements` directory.
 
@@ -82,7 +86,9 @@ Or you can use `font-awesome-to-png`, which works analogously:
 You can use `IconFont` (and `FontAwesomeDownloader`/`OcticonsDownloader`
 for that matter) directly inside your Python project. There's no documentation
 as of now, but the code is commented and *should* be pretty straightforward
-to use, but feel free to ask me if anything is unclear.
+to use.
+
+But feel free to ask me if anything is unclear.
 
 ## Tests
 Package was tested with `tox` on Python 2.7 and Python 3.4 (see `tox.ini`).

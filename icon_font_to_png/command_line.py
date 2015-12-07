@@ -80,7 +80,8 @@ def run(arguments):
 
     # Parse '--download' argument first
     if args.download:
-        download_icon_font(args.download, os.getcwd())
+        downloader = download_icon_font(args.download, os.getcwd())
+        downloader.download_files()
         print("Icon font '{name}' successfully downloaded".format(
             name=args.download)
         )
@@ -152,7 +153,7 @@ def run(arguments):
 # Isolated for use in wrapper scripts
 def download_icon_font(icon_font, directory):
     try:
-        return AVAILABLE_ICON_FONTS[icon_font](directory=directory)
+        return AVAILABLE_ICON_FONTS[icon_font](directory)
     except KeyError:
         raise Exception("We don't support downloading font '{name}'".format(
             name=icon_font)

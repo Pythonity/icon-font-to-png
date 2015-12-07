@@ -1,8 +1,9 @@
 from __future__ import unicode_literals
-from six import with_metaclass, PY3
 
 from abc import ABCMeta, abstractmethod
 import os
+
+from six import with_metaclass, PY3
 
 if PY3:
     from urllib.request import urlretrieve
@@ -12,6 +13,8 @@ else:
 
 class IconFontDownloader(with_metaclass(ABCMeta)):
     """Abstract class for downloading icon font CSS and TTF files"""
+    css_path = None
+    ttf_path = None
 
     @property
     @abstractmethod
@@ -27,11 +30,9 @@ class IconFontDownloader(with_metaclass(ABCMeta)):
 
     def __init__(self, directory=None):
         """
-        :param directory: path to download directory
+        :param directory: path to download directory; temporary dir if None
         """
-        # Download CSS and TTF files
-        self.css_path = self.download_css(directory)
-        self.ttf_path = self.download_ttf(directory)
+        self.directory = directory
 
     @staticmethod
     def _download_file_from_url(url, directory=None):
@@ -57,6 +58,11 @@ class IconFontDownloader(with_metaclass(ABCMeta)):
     def download_ttf(self, directory):
         """Downloads icon font TTF file and returns its path"""
         return self._download_file_from_url(self.ttf_url, directory)
+
+    def download_files(self):
+        """Download CSS and TTF files"""
+        self.css_path = self.download_css(self.directory)
+        self.ttf_path = self.download_ttf(self.directory)
 
 
 class FontAwesomeDownloader(IconFontDownloader):

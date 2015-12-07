@@ -7,6 +7,7 @@ import shutil
 from icon_font_to_png import command_line
 
 
+# Tests
 def test_list_option(capfd):
     """Test listing CSS icons"""
     css_file = os.path.join('files', 'test-foo.css')
@@ -77,7 +78,7 @@ def test_icon_export(capfd):
 
 
 def test_filename_option(capfd):
-    """Test whether """
+    """Test file names"""
     css_file = os.path.join('files', 'font-awesome.css')
     ttf_file = os.path.join('files', 'fontawesome-webfont.ttf')
 
@@ -105,7 +106,27 @@ def test_filename_option(capfd):
     assert os.path.isfile(os.path.join('exported', 'foo-star.png'))
 
 
+def test_download_option(capfd):
+    """Test icon font download option"""
+    with pytest.raises(SystemExit):
+        command_line.run(
+            '--download {font_name}'.format(font_name='font-awesome').split()
+        )
+    out, err = capfd.readouterr()  # For skipping stdout
+    assert out == "Icon font 'font-awesome' successfully downloaded\n"
+
+    assert os.path.isfile('font-awesome.css')
+    assert os.path.isfile('fontawesome-webfont.ttf')
+
+
+# Teardown
 def teardown_module(module):
-    """Delete exported icons directory"""
+    """Delete exported icons directory and downloaded FontAwesome files"""
     if os.path.isdir('exported'):
         shutil.rmtree('exported')
+
+    if os.path.isfile('font-awesome.css'):
+        os.remove('font-awesome.css')
+
+    if os.path.isfile('fontawesome-webfont.ttf'):
+        os.remove('fontawesome-webfont.ttf')

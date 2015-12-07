@@ -2,12 +2,24 @@ from __future__ import unicode_literals
 
 import pytest
 import os
+import shutil
 import uuid
 import tempfile
+from PIL import Image, ImageChops
 
 from icon_font_to_png import icon_font
 
 
+# Module fixtures
+@pytest.fixture(scope='module')
+def font_awesome():
+    css_file = os.path.join('files', 'font-awesome.css')
+    ttf_file = os.path.join('files', 'fontawesome-webfont.ttf')
+    font = icon_font.IconFont(css_file=css_file, ttf_file=ttf_file)
+    return font
+
+
+# Tests
 def test_init():
     """Test initializing"""
 
@@ -36,3 +48,69 @@ def test_common_prefix():
     obj = icon_font.IconFont(css_file=css_file, ttf_file=None,
                              keep_prefix=True)
     assert obj.common_prefix == ''
+
+
+@pytest.mark.parametrize("image,size", [
+    ("rocket_16.png", 16),
+    ("rocket_100.png", 100),
+    ("rocket_256.png", 256),
+])
+def test_size(font_awesome, image, size):
+    """Test size option"""
+    original_file = os.path.join('files', image)
+
+    font_awesome.export_icon(icon='rocket', size=size)
+    exported_file = os.path.join('exported', 'rocket.png')
+
+    img1 = Image.open(original_file)
+    img2 = Image.open(exported_file)
+
+    # Check dimensions
+    assert img1.size == (size, size)
+    assert img2.size == (size, size)
+
+    # Check if the images are equal
+    assert ImageChops.difference(img1, img2).getbbox() is None
+
+
+@pytest.mark.parametrize("image,color", [
+    ("rocket_blue.png", 'blue'),
+    ("rocket_cyan.png", 'cyan'),
+    ("rocket_123123.png", '#123123'),
+])
+def test_color(font_awesome, image, color):
+    original_file = os.path.join('files', image)
+
+    font_awesome.export_icon(icon='rocket', size=16, color=color)
+    exported_file = os.path.join('exported', 'rocket.png')
+
+    img1 = Image.open(original_file)
+    img2 = Image.open(exported_file)
+
+    # Check if the images are equal
+    assert ImageChops.difference(img1, img2).getbbox() is None
+
+
+@pytest.mark.parametrize("image,scale", [
+    ("rocket_x1.png", 1),
+    ("rocket_x05.png", 0.5),
+    ("rocket_auto.png", 'auto'),
+])
+def test_scale(font_awesome, image, scale):
+    original_file = os.path.join('files', image)
+
+    font_awesome.export_icon(icon='rocket', size=16, scale=scale)
+    exported_file = os.path.join('exported', 'rocket.png')
+
+    img1 = Image.open(original_file)
+    img2 = Image.open(exported_file)
+
+    # Check if the images are equal
+    assert ImageChops.difference(img1, img2).getbbox() is None
+
+
+# Teardown
+def teardown_module(module):
+    """Delete exported icons directory"""
+    if os.path.isdir('exported'):
+        shutil.rmtree('exported')

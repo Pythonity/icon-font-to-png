@@ -9,7 +9,7 @@ fonts (e.g. Font Awesome, Octicons) as PNG images. It comes with a shell script
 wrapping its functionality, which is it's main focus, but can also be imported
 and used directly in your Python project.
 
-There's also '`font-awesome-to-png` script for backwards compatibility with the
+There's also `font-awesome-to-png` script for backwards compatibility with the
 [first](https://github.com/odyniec/font-awesome-to-png) iteration of the concept.
 
 Package is considered to be in beta status and no backwards compatibility

@@ -40,17 +40,19 @@ if sys.version_info >= (3, 0):
     # Python 3
     install_requires = ['pillow>=3.0.0',
                         'tinycss>=0.3',
-                        'six>=1.10.0']
+                        'six>=1.10.0',
+                        'requests>=2.8.1']
 else:
     # Python 2
     install_requires = ['pillow>=2.8.1',
                         'tinycss>=0.3',
-                        'six>=1.10.0']
+                        'six>=1.10.0',
+                        'requests>=2.8.1']
 
 setup(
     name='icon_font_to_png',
     url='https://github.com/Pythonity/icon-font-to-png',
-    version='0.2.0',
+    version='0.2.1',
     license='MIT License',
     author='Pythonity',
     author_email=' pythonity@pythonity.com',

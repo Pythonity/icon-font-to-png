@@ -47,6 +47,15 @@ def test_icon_export(capfd):
     css_file = os.path.join('files', 'font-awesome.css')
     ttf_file = os.path.join('files', 'fontawesome-webfont.ttf')
 
+    # Export none icons
+    with pytest.raises(SystemExit):
+        command_line.run(
+            '--css {css_file} --ttf {ttf_file}'.format(
+                css_file=css_file, ttf_file=ttf_file
+            ).split()
+        )
+    out, err = capfd.readouterr()  # For skipping stdout
+
     # Export one icon
     command_line.run(
         '--css {css_file} --ttf {ttf_file} github'.format(

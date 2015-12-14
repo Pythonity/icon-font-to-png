@@ -116,6 +116,12 @@ class OcticonsDownloader(IconFontDownloader):
 
 # List of implemented icon font downloader classes
 AVAILABLE_ICON_FONTS = {
-    'font-awesome': FontAwesomeDownloader,
-    'octicons': OcticonsDownloader
+    'font-awesome': {
+        'name': 'Font Awesome',
+        'downloader': FontAwesomeDownloader,
+    },
+    'octicons': {
+        'name': 'Octicons',
+        'downloader': OcticonsDownloader,
+    },
 }

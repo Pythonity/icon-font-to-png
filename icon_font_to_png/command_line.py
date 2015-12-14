@@ -153,7 +153,7 @@ def run(arguments):
 # Isolated for use in wrapper scripts
 def download_icon_font(icon_font, directory):
     try:
-        return AVAILABLE_ICON_FONTS[icon_font](directory)
+        return AVAILABLE_ICON_FONTS[icon_font]['downloader'](directory)
     except KeyError:
         raise Exception("We don't support downloading font '{name}'".format(
             name=icon_font)

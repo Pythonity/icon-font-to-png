@@ -3,3 +3,4 @@ pytest
 tox
 twine
 pypandoc
+coverage

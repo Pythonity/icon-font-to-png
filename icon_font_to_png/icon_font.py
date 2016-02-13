@@ -10,6 +10,7 @@ from PIL import Image, ImageFont, ImageDraw
 
 
 class IconFont:
+    """Base class that represents web icon font"""
     def __init__(self, css_file, ttf_file, keep_prefix=False):
         """
         :param css_file: path to icon font CSS file

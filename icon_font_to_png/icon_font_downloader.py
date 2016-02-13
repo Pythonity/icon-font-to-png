@@ -18,14 +18,14 @@ class IconFontDownloader(with_metaclass(ABCMeta)):
     ttf_path = None
 
     @property
-    @abstractmethod
     def css_url(self):
         """Icon font CSS file URL"""
+        raise NotImplementedError
 
     @property
-    @abstractmethod
     def ttf_url(self):
         """Icon font TTF file URL"""
+        raise NotImplementedError
 
     def __init__(self, directory=None):
         """
@@ -62,6 +62,7 @@ class IconFontDownloader(with_metaclass(ABCMeta)):
     @abstractmethod
     def get_latest_version_number(self):
         """Get latest icon font version number"""
+        return
 
     def download_css(self, directory):
         """Downloads icon font CSS file and returns its path"""

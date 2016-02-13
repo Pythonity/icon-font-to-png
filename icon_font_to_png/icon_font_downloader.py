@@ -4,12 +4,12 @@ import os
 from abc import ABCMeta, abstractmethod
 
 import requests
-from six import with_metaclass, PY3
+from six import with_metaclass, PY2, PY3
 
-if PY3:
-    from urllib.request import urlretrieve
-else:
+if PY2:
     from urllib import urlretrieve
+elif PY3:
+    from urllib.request import urlretrieve
 
 
 class IconFontDownloader(with_metaclass(ABCMeta)):

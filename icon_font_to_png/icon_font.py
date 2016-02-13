@@ -9,7 +9,7 @@ from collections import OrderedDict
 from PIL import Image, ImageFont, ImageDraw
 
 
-class IconFont:
+class IconFont(object):
     """Base class that represents web icon font"""
     def __init__(self, css_file, ttf_file, keep_prefix=False):
         """

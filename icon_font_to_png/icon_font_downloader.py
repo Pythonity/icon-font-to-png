@@ -12,7 +12,7 @@ elif PY3:
     from urllib.request import urlretrieve
 
 
-class IconFontDownloader(with_metaclass(ABCMeta)):
+class IconFontDownloader(object, with_metaclass(ABCMeta)):
     """Abstract class for downloading icon font CSS and TTF files"""
     css_path = None
     ttf_path = None

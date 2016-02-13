@@ -7,6 +7,7 @@ from icon_font_to_png import IconFont, AVAILABLE_ICON_FONTS
 
 
 def run(arguments):
+    """Main function for command line usage"""
     parser = argparse.ArgumentParser(
         description="Exports font icons as PNG images."
     )
@@ -152,6 +153,7 @@ def run(arguments):
 
 # Isolated for use in wrapper scripts
 def download_icon_font(icon_font, directory):
+    """Download given (implemented) icon font into passed directory"""
     try:
         return AVAILABLE_ICON_FONTS[icon_font]['downloader'](directory)
     except KeyError:  # pragma: no cover

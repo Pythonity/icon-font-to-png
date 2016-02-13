@@ -38,12 +38,16 @@ except (IOError, ImportError):
 setup(
     name='icon_font_to_png',
     url='https://github.com/Pythonity/icon-font-to-png',
-    version='0.3.0',
+    download_url='https://github.com/Pythonity/icon-font-to-png/releases/latest',
+    bugtrack_url='https://github.com/Pythonity/icon-font-to-png/issues',
+    version='0.3.1',
     license='MIT License',
     author='Pythonity',
-    author_email=' pythonity@pythonity.com',
-    description='Python library for exporting icons from icon fonts '
-                '(e.g. Font Awesome, Octicons) as PNG images.',
+    author_email='pythonity@pythonity.com',
+    maintainer='Paweł Adamczak',
+    maintainer_email='pawel.adamczak@sidnet.info',
+    description='Python script (and library) for exporting icons from '
+                'icon fonts (e.g. Font Awesome, Octicons) as PNG images.',
     long_description=description,
     packages=['icon_font_to_png'],
     tests_require=['tox'],
@@ -52,13 +56,13 @@ setup(
         'pillow>=3.0.0',
         'tinycss>=0.3',
         'six>=1.10.0',
-        'requests>=2.8.1'
+        'requests>=2.9.1'
     ],
     extras_require={
         'testing': ['pytest'],
     },
     scripts=['bin/font-awesome-to-png', 'bin/icon-font-to-png'],
-    keywords='icon font export',
+    keywords='icon font export font awesome octicons',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',

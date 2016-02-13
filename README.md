@@ -1,8 +1,12 @@
 # Icon Font to PNG
-[![Version](https://img.shields.io/pypi/v/icon_font_to_png.svg)](https://pypi.python.org/pypi/icon_font_to_png)
-[![Downloads](https://img.shields.io/pypi/dm/icon_font_to_png.svg)](https://pypi.python.org/pypi/icon_font_to_png)
+[![PyPI Version](https://img.shields.io/pypi/v/icon_font_to_png.svg)][Project PyPI]
+[![PyPI Downloads](https://img.shields.io/pypi/dm/icon_font_to_png.svg)][Project PyPI]
+[![Python Versions](https://img.shields.io/pypi/pyversions/icon_font_to_png.svg)][Project PyPI]
 [![License](https://img.shields.io/github/license/Pythonity/icon-font-to-png.svg)](https://github.com/Pythonity/icon-font-to-png/blob/master/LICENSE)
+
 [![Build](https://img.shields.io/travis/Pythonity/icon-font-to-png.svg)](https://travis-ci.org/Pythonity/icon-font-to-png)
+[![GitHub Issues](https://img.shields.io/github/issues/Pythonity/icon-font-to-png.svg)](https://github.com/Pythonity/icon-font-to-png)
+[![Code Issues](https://www.quantifiedcode.com/api/v1/project/8d545f881ce9476e9e2d8028bd300f63/badge.svg)](https://www.quantifiedcode.com/app/project/8d545f881ce9476e9e2d8028bd300f63)
 
 Python library made for easy and simple export of icons from web icon
 fonts (e.g. Font Awesome, Octicons) as PNG images. It comes with a shell script
@@ -13,12 +17,12 @@ There's also `font-awesome-to-png` script for backwards compatibility with the
 [first](https://github.com/odyniec/font-awesome-to-png) iteration of the concept.
 
 Package is considered to be in beta status and no backwards compatibility
-(if you use it inside your project) between (minor) versions is provided.
+(if you use it inside your project) between versions is guaranteed.
 
 Packages required for running  and testing are listed in `requirements` directory.
 
 ## Installation
-Make sure you have required packages for [Pillow installation](https://pillow.readthedocs.org/en/3.0.x/installation.html).
+Make sure you have required packages for [Pillow installation](https://pillow.readthedocs.org/en/3.1.x/installation.html).
 
 With `pip` (recommended):
 ```
@@ -83,12 +87,11 @@ Or you can use `font-awesome-to-png`, which works analogously:
 `$ font-awesome-to-png ALL`
 
 ## API
-You can use `IconFont` (and `FontAwesomeDownloader`/`OcticonsDownloader`
-for that matter) directly inside your Python project. There's no documentation
-as of now, but the code is commented and *should* be pretty straightforward
-to use.
+You can use `IconFont` (and `FontAwesomeDownloader`/`OcticonsDownloader` for that matter)
+directly inside your Python project. There's no documentation as of now,
+but the code is commented and *should* be pretty straightforward to use.
 
-But feel free to ask me if anything is unclear.
+But feel free to ask [me](mailto:pawel.adamczak@sidnet.info) if anything is unclear.
 
 ## Tests
 Package was tested with `tox` on Python 2.7 and Python 3.4 (see `tox.ini`).
@@ -106,3 +109,6 @@ Developed and maintained by [Pythonity](http://pythonity.com/).
 
 Original version by [Michał Wojciechowski](https://github.com/odyniec), 
 refactored by [Paweł Adamczak](https://github.com/pawelad).
+
+
+[Project PyPI]: https://pypi.python.org/pypi/icon_font_to_png

@@ -87,7 +87,7 @@ def test_icon_export(capfd):
 
 
 def test_filename_option(capfd):
-    """Test file names"""
+    """Test filename option"""
     css_file = os.path.join('files', 'font-awesome.css')
     ttf_file = os.path.join('files', 'fontawesome-webfont.ttf')
 
@@ -129,7 +129,7 @@ def test_download_option(capfd):
 
 
 # Teardown
-def teardown_module(module):
+def teardown_module():
     """Delete exported icons directory and downloaded FontAwesome files"""
     if os.path.isdir('exported'):
         shutil.rmtree('exported')

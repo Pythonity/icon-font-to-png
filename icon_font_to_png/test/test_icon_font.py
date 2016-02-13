@@ -13,16 +13,15 @@ from icon_font_to_png import icon_font
 # Module fixtures
 @pytest.fixture(scope='module')
 def font_awesome():
+    """Create a IconFont instance from Font Awesome files"""
     css_file = os.path.join('files', 'font-awesome.css')
     ttf_file = os.path.join('files', 'fontawesome-webfont.ttf')
-    font = icon_font.IconFont(css_file=css_file, ttf_file=ttf_file)
-    return font
+    return icon_font.IconFont(css_file=css_file, ttf_file=ttf_file)
 
 
 # Tests
 def test_init():
     """Test initializing"""
-
     # No arguments
     with pytest.raises(TypeError):
         icon_font.IconFont()
@@ -79,6 +78,7 @@ def test_size(font_awesome, image, size):
     ("rocket_123123.png", '#123123'),
 ])
 def test_color(font_awesome, image, color):
+    """Test color option"""
     original_file = os.path.join('files', image)
 
     font_awesome.export_icon(icon='rocket', size=16, color=color)
@@ -97,6 +97,7 @@ def test_color(font_awesome, image, color):
     ("rocket_auto.png", 'auto'),
 ])
 def test_scale(font_awesome, image, scale):
+    """Test scale option"""
     original_file = os.path.join('files', image)
 
     font_awesome.export_icon(icon='rocket', size=16, scale=scale)
@@ -110,7 +111,7 @@ def test_scale(font_awesome, image, scale):
 
 
 # Teardown
-def teardown_module(module):
+def teardown_module():
     """Delete exported icons directory"""
     if os.path.isdir('exported'):
         shutil.rmtree('exported')

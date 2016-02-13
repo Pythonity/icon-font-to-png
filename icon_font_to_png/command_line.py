@@ -3,7 +3,7 @@ from __future__ import unicode_literals, print_function
 import os
 import argparse
 
-from icon_font_to_png import *
+from icon_font_to_png import IconFont, AVAILABLE_ICON_FONTS
 
 
 def run(arguments):

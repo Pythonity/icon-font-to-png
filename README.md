@@ -6,7 +6,6 @@
 
 [![Build](https://img.shields.io/travis/Pythonity/icon-font-to-png.svg)](https://travis-ci.org/Pythonity/icon-font-to-png)
 [![GitHub Issues](https://img.shields.io/github/issues/Pythonity/icon-font-to-png.svg)](https://github.com/Pythonity/icon-font-to-png)
-[![Code Issues](https://www.quantifiedcode.com/api/v1/project/8d545f881ce9476e9e2d8028bd300f63/badge.svg)](https://www.quantifiedcode.com/app/project/8d545f881ce9476e9e2d8028bd300f63)
 
 Python script (and library) for easy and simple export of icons from web icon
 fonts (e.g. Font Awesome, Octicons) as PNG images. The best part is the

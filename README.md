@@ -1,11 +1,9 @@
 # Icon Font to PNG
+[![Build Status](https://img.shields.io/travis/Pythonity/icon-font-to-png.svg)](https://travis-ci.org/Pythonity/icon-font-to-png)
 [![PyPI Version](https://img.shields.io/pypi/v/icon_font_to_png.svg)][Project PyPI]
 [![PyPI Downloads](https://img.shields.io/pypi/dm/icon_font_to_png.svg)][Project PyPI]
 [![Python Versions](https://img.shields.io/pypi/pyversions/icon_font_to_png.svg)][Project PyPI]
 [![License](https://img.shields.io/github/license/Pythonity/icon-font-to-png.svg)](https://github.com/Pythonity/icon-font-to-png/blob/master/LICENSE)
-
-[![Build](https://img.shields.io/travis/Pythonity/icon-font-to-png.svg)](https://travis-ci.org/Pythonity/icon-font-to-png)
-[![GitHub Issues](https://img.shields.io/github/issues/Pythonity/icon-font-to-png.svg)](https://github.com/Pythonity/icon-font-to-png)
 
 Python script (and library) for easy and simple export of icons from web icon
 fonts (e.g. Font Awesome, Octicons) as PNG images. The best part is the
@@ -86,7 +84,7 @@ Or you can use `font-awesome-to-png`, which works analogously:
 `$ font-awesome-to-png ALL`
 
 ## API
-You can use `IconFont` (and `FontAwesomeDownloader`/`OcticonsDownloader` for that matter)
+You can use `IconFont` (and `IconFontDownloader` for that matter)
 directly inside your Python project. There's no documentation as of now,
 but the code is commented and *should* be pretty straightforward to use.
 

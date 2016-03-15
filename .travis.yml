@@ -1,5 +1,9 @@
 language: python
 
+os:
+  - linux
+  - osx
+
 install:
   - pip install tox --use-mirrors
 

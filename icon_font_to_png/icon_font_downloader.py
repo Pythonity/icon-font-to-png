@@ -3,16 +3,17 @@ from __future__ import unicode_literals
 import os
 from abc import ABCMeta, abstractmethod
 
+import six
 import requests
-from six import with_metaclass, PY2, PY3
 
-if PY2:
+if six.PY2:
     from urllib import urlretrieve
-elif PY3:
+elif six.PY3:
     from urllib.request import urlretrieve
 
 
-class IconFontDownloader(object, with_metaclass(ABCMeta)):
+@six.add_metaclass(ABCMeta)
+class IconFontDownloader(object):
     """Abstract class for downloading icon font CSS and TTF files"""
     css_path = None
     ttf_path = None

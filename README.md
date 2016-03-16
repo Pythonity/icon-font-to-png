@@ -34,7 +34,7 @@ $ cd icon-font-to-png/bin
 ```
 
 ### OS X
-As reported [here](#2), to install it on OS X:
+As reported [here](https://github.com/Pythonity/icon-font-to-png/issues/2#issuecomment-197068427), to install it on OS X:
 ```
 $ pip install icon_font_to_png --ignore-installed six
 ```

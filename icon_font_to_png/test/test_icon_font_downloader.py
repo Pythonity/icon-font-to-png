@@ -1,14 +1,17 @@
 from __future__ import unicode_literals
 
-import pytest
 import os
 import tempfile
+
+import pytest
+from flaky import flaky
 
 from icon_font_to_png.icon_font_downloader import (
     FontAwesomeDownloader, OcticonsDownloader
 )
 
 
+@flaky
 @pytest.mark.parametrize("downloader", [
     FontAwesomeDownloader,
     OcticonsDownloader,

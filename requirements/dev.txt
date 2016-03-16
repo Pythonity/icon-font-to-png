@@ -1,5 +1,6 @@
 -r common.txt
 pytest
+flaky
 tox
 twine
 pypandoc

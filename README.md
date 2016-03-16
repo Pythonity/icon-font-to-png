@@ -33,6 +33,12 @@ $ pip install -r icon-font-to-png/requirements.txt
 $ cd icon-font-to-png/bin
 ```
 
+### OS X
+As reported [here](#2), to install it on OS X:
+```
+$ pip install icon_font_to_png --ignore-installed six
+```
+
 ## Usage
 ```
 usage: icon-font-to-png [-h] [--list] [--download {font-awesome,octicons}]

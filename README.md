@@ -86,6 +86,9 @@ Export 'play' and 'stop' icons, size 64x64:
 Export all icons in blue:  
 `$ icon-font-to-png --css font-awesome.css --ttf fontawesome-webfont.ttf --color blue ALL`
 
+Export all icons in blue, but using it's hex value:
+`$ icon-font-to-png --css font-awesome.css --ttf fontawesome-webfont.ttf --color blue '#0000ff' ALL`
+
 Or you can use `font-awesome-to-png`, without css and ttf arguments:  
 `$ font-awesome-to-png ALL`
 

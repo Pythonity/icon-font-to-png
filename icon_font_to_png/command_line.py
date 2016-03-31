@@ -155,7 +155,9 @@ def run(arguments):
 def download_icon_font(icon_font, directory):
     """Download given (implemented) icon font into passed directory"""
     try:
-        return AVAILABLE_ICON_FONTS[icon_font]['downloader'](directory)
+        downloader = AVAILABLE_ICON_FONTS[icon_font]['downloader'](directory)
+        downloader.download_files()
+        return downloader
     except KeyError:  # pragma: no cover
         raise Exception("We don't support downloading font '{name}'".format(
             name=icon_font)

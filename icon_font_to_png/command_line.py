@@ -61,7 +61,7 @@ def run(arguments):
         '--color',
         type=str,
         default='black',
-        help="HTML color code or name (default: black)"
+        help="color name or hex value (default: black)"
     )
     exp_group.add_argument(
         '--filename',

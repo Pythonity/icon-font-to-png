@@ -86,7 +86,7 @@ class IconFont(object):
         :param icon: valid icon name
         :param filename: name of the output file
         :param size: icon size in pixels
-        :param color: HTML color code or name
+        :param color: color name or hex value
         :param scale: scaling factor between 0 and 1,
                       or 'auto' for automatic scaling
         :param export_dir: path to export directory

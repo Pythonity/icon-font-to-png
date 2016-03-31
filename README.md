@@ -65,7 +65,7 @@ exporting icons:
   --scale SCALE         scaling factor between 0 and 1, or 'auto' for
                         automatic scaling (default: auto); be careful, as
                         setting it may lead to icons being cropped
-  --color COLOR         HTML color code or name (default: black)
+  --color COLOR         color name or hex value (default: black)
   --filename FILENAME   name of the output file (without '.png' extension);
                         it's used as a prefix if multiple icons are exported
   --keep_prefix         do not remove common icon prefix (i.e. 'fa-arrow-

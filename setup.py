@@ -40,7 +40,7 @@ setup(
     url='https://github.com/Pythonity/icon-font-to-png',
     download_url='https://github.com/Pythonity/icon-font-to-png/releases/latest',
     bugtrack_url='https://github.com/Pythonity/icon-font-to-png/issues',
-    version='0.3.4',
+    version='0.3.5',
     license='MIT License',
     author='Pythonity',
     author_email='pythonity@pythonity.com',

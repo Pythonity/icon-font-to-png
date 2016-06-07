@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 import sys
-from setuptools import setup
+from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 
 
@@ -49,14 +49,15 @@ setup(
     description='Python script (and library) for exporting icons from '
                 'icon fonts (e.g. Font Awesome, Octicons) as PNG images.',
     long_description=description,
-    packages=['icon_font_to_png'],
+    packages=find_packages(),
+    include_package_data=True,
     tests_require=['tox'],
     cmdclass={'test': Tox},
     install_requires=[
         'pillow>=3.0.0',
         'tinycss>=0.3',
         'six>=1.10.0',
-        'requests>=2.9.1'
+        'requests>=2.10.0',
     ],
     extras_require={
         'testing': ['pytest'],

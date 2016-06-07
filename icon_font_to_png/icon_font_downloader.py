@@ -102,10 +102,10 @@ class OcticonsDownloader(IconFontDownloader):
     Project page:
         https://octicons.github.com/
     """
-    css_url = ('https://raw.githubusercontent.com/github/'
-               'octicons/master/octicons/octicons.css')
-    ttf_url = ('https://raw.githubusercontent.com/github/'
-               'octicons/master/octicons/octicons.ttf')
+    css_url = ('https://raw.githubusercontent.com/primer/'
+               'octicons/master/build/font/octicons.css')
+    ttf_url = ('https://raw.githubusercontent.com/primer/'
+               'octicons/master/build/font/octicons.ttf')
 
     def get_latest_version_number(self):
         return self._get_latest_tag_from_github(

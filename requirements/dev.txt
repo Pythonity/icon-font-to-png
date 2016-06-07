@@ -4,4 +4,5 @@ flaky
 tox
 twine
 pypandoc
+check-manifest
 coverage

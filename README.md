@@ -90,7 +90,7 @@ $ icon-font-to-png --css font-awesome.css --ttf fontawesome-webfont.ttf --color 
 
 Export all icons in blue, but using it's hex value:
 ```
-$ icon-font-to-png --css font-awesome.css --ttf fontawesome-webfont.ttf --color blue '#0000ff' ALL
+$ icon-font-to-png --css font-awesome.css --ttf fontawesome-webfont.ttf --color '#0000ff' ALL
 ```
 
 Or you can use `font-awesome-to-png`, without css and ttf arguments:

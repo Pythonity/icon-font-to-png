@@ -125,19 +125,25 @@ def run(arguments):
             else:
                 parser.error("Unknown icon name '{icon}'".format(icon=icon))
 
+    # Parse filename and remove the extension if necessary
+    given_filename = args.filename or ''
+    if given_filename.lower().endswith('.png'):
+        given_filename = given_filename[:-4]
+
     # Commence exporting
     for icon in selected_icons:
         if len(selected_icons) > 1:
             # Multiple icons - treat the filename option as name prefix
-            filename = '{prefix}{icon}.png'.format(prefix=(args.filename or ''),
-                                                   icon=icon)
+            filename = '{prefix}{icon}.png'.format(
+                prefix=given_filename, icon=icon,
+            )
         else:
-            if args.filename:
+            if given_filename:
                 # Use the specified filename
-                filename = args.filename + '.png'
+                filename = given_filename + '.png'
             else:
                 # Use icon name as filename
-                filename = icon + '.png'
+                filename = str(icon) + '.png'
 
         print("Exporting icon '{icon}' as '{filename}'"
               "({size}x{size} pixels)".format(icon=icon,

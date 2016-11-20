@@ -1,7 +1,7 @@
 # Icon Font to PNG
-[![Build Status](https://img.shields.io/travis/Pythonity/icon-font-to-png.svg)][if2p travis]
-[![PyPI Version](https://img.shields.io/pypi/v/icon_font_to_png.svg)][if2p pypi]
-[![Python Versions](https://img.shields.io/pypi/pyversions/icon_font_to_png.svg)][if2p pypi]
+[![Build Status](https://img.shields.io/travis/Pythonity/icon-font-to-png.svg)][travis]
+[![PyPI Version](https://img.shields.io/pypi/v/icon_font_to_png.svg)][pypi]
+[![Python Versions](https://img.shields.io/pypi/pyversions/icon_font_to_png.svg)][pypi]
 [![License](https://img.shields.io/github/license/Pythonity/icon-font-to-png.svg)][license]
 
 Python script (and library) for easy and simple export of icons from web
@@ -15,20 +15,20 @@ with the [first][odyniec fa2p] iteration of the concept.
 ## Installation
 Make sure you have required packages for [Pillow installation][pillow].
 
-With `PyPI` (recommended):
+From PyPI (recommended):
 ```
 $ pip install icon_font_to_png
 ```
 
 With `git clone`:
-```
+```shell
 $ git clone https://github.com/Pythonity/icon-font-to-png
 $ pip install -r icon-font-to-png/requirements.txt
 $ cd icon-font-to-png/bin
 ```
 
 ### OS X
-As reported [here][if2p osx], to install it on OS X:
+As reported [here][if2p osx bug], to install it on OS X:
 ```
 $ pip install icon_font_to_png --ignore-installed six
 ```
@@ -107,16 +107,19 @@ But feel free to ask [me](mailto:pawel.adamczak@sidnet.info) if anything
 is unclear.
 
 ## Tests
-Package was tested with `pytest` and `tox` on Python 2.7 and 3.4
-(see `tox.ini`).
+Package was tested with the help of `py.test` and `tox` on Python 2.7, 3.4
+and 3.5 (see `tox.ini`).
 
-To run tests yourself run `tox` inside the repository.
+To run tests yourself run `tox` inside the repository:
+```
+$ tox
+```
 
 ## Contributions
-Package source code is available at [GitHub][if2p github].
+Package source code is available at [GitHub][github].
 
-Feel free to use, ask, fork, star, report bugs, fix them, suggest 
-enhancements and point out any mistakes.
+Feel free to use, ask, fork, star, report bugs, fix them, suggest enhancements,
+add functionality and point out any mistakes.
 
 ## Authors
 Developed and maintained by [Pythonity][pythonity].
@@ -125,13 +128,13 @@ Original version by [Michał Wojciechowski][odyniec], refactored by
 [Paweł Adamczak][pawelad].
 
 
-[if2p travis]: https://travis-ci.org/Pythonity/icon-font-to-png
-[if2p pypi]: https://pypi.python.org/pypi/icon_font_to_png
+[github]: https://github.com/Pythonity/icon-font-to-png
+[if2p osx bug]: https://github.com/Pythonity/icon-font-to-png/issues/2#issuecomment-197068427
 [license]: https://github.com/Pythonity/icon-font-to-png/blob/master/LICENSE
 [odyniec fa2p]: https://github.com/odyniec/font-awesome-to-png
-[pillow]: https://pillow.readthedocs.org/en/latest/installation.html
-[if2p osx]: https://github.com/Pythonity/icon-font-to-png/issues/2#issuecomment-197068427
-[if2p github]: https://github.com/Pythonity/icon-font-to-png
-[pythonity]: http://pythonity.com/
 [odyniec]: https://github.com/odyniec
 [pawelad]: https://github.com/pawelad
+[pillow]: https://pillow.readthedocs.org/en/latest/installation.html
+[pypi]: https://pypi.python.org/pypi/icon_font_to_png
+[pythonity]: http://pythonity.com/
+[travis]: https://travis-ci.org/Pythonity/icon-font-to-png

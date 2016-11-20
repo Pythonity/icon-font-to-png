@@ -1,9 +1,9 @@
-include *.in
 include *.md
 include *.txt
 include LICENSE
 include tox.ini
 recursive-include icon_font_to_png *.css
+recursive-include icon_font_to_png *.png
 recursive-include icon_font_to_png *.py
 recursive-include icon_font_to_png *.ttf
 recursive-include requirements *.txt

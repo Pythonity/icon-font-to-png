@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from __future__ import absolute_import, unicode_literals
 
 import os
 import tempfile
@@ -12,6 +12,7 @@ from icon_font_to_png.icon_font_downloader import (
 )
 
 
+# Tests
 @flaky
 @pytest.mark.parametrize("downloader", [
     FontAwesomeDownloader,

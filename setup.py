@@ -49,8 +49,8 @@ setup(
     author_email='pythonity@pythonity.com',
     maintainer='Paweł Adamczak',
     maintainer_email='pawel.adamczak@sidnet.info',
-    description='Python script (and library) for exporting icons from '
-                'icon fonts (e.g. Font Awesome, Octicons) as PNG images.',
+    description="Python script (and library) for exporting icons from "
+                "icon fonts (e.g. Font Awesome, Octicons) as PNG images.",
     long_description=description,
     packages=find_packages(),
     include_package_data=True,
@@ -59,7 +59,6 @@ setup(
         'requests>=2.12.1',
         'six>=1.10.0',
         'tinycss>=0.4',
-
     ],
     extras_require={
         'testing': ['pytest'],

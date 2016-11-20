@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from __future__ import absolute_import, unicode_literals
 
 import os
 import random
@@ -9,6 +9,7 @@ import pytest
 from icon_font_to_png import icon_font
 
 
+# Fixtures
 @pytest.fixture(scope='module')
 def octicons():
     """Create a IconFont instance from Octicons files"""
@@ -17,6 +18,7 @@ def octicons():
     return icon_font.IconFont(css_file=css_file, ttf_file=ttf_file)
 
 
+# Tests
 def test_octicons_load_icons(octicons):
     """Test Octicons icon loading"""
     assert len(octicons.css_icons) > 0

@@ -1,7 +1,7 @@
 # Icon Font to PNG
-[![Build Status](https://img.shields.io/travis/Pythonity/icon-font-to-png.svg)][travis]
-[![PyPI Version](https://img.shields.io/pypi/v/icon_font_to_png.svg)][pypi]
-[![Python Versions](https://img.shields.io/pypi/pyversions/icon_font_to_png.svg)][pypi]
+[![Build status](https://img.shields.io/travis/Pythonity/icon-font-to-png.svg)][travis]
+[![PyPI version](https://img.shields.io/pypi/v/icon_font_to_png.svg)][pypi]
+[![Python versions](https://img.shields.io/pypi/pyversions/icon_font_to_png.svg)][pypi]
 [![License](https://img.shields.io/github/license/Pythonity/icon-font-to-png.svg)][license]
 
 Python script (and library) for easy and simple export of icons from web

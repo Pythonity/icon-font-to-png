@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from __future__ import absolute_import, unicode_literals
 
 import os
 import random
@@ -9,6 +9,7 @@ import pytest
 from icon_font_to_png import icon_font
 
 
+# Fixtures
 @pytest.fixture(scope='module')
 def font_awesome():
     """Create a IconFont instance from Font Awesome files"""
@@ -17,6 +18,7 @@ def font_awesome():
     return icon_font.IconFont(css_file=css_file, ttf_file=ttf_file)
 
 
+# Tests
 def test_font_awesome_load_icons(font_awesome):
     """Test Font Awesome icon loading"""
     assert len(font_awesome.css_icons) > 0

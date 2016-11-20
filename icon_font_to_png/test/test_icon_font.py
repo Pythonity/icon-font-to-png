@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from __future__ import absolute_import, unicode_literals
 
 import os
 import shutil
@@ -12,7 +12,7 @@ from PIL import Image, ImageChops
 from icon_font_to_png import icon_font
 
 
-# Module fixtures
+# Fixtures
 @pytest.fixture(scope='module')
 def font_awesome():
     """Create a IconFont instance from Font Awesome files"""

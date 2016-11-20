@@ -1,38 +1,40 @@
 # -*- coding: utf-8 -*-
-from __future__ import print_function
-import sys
+from __future__ import unicode_literals
+
+import io
+import os
+import re
+
 from setuptools import setup, find_packages
-from setuptools.command.test import test as TestCommand
 
-
-class Tox(TestCommand):
-    user_options = [('tox-args=', 'a', "Arguments to pass to tox")]
-
-    def initialize_options(self):
-        TestCommand.initialize_options(self)
-        self.tox_args = None
-
-    def finalize_options(self):
-        TestCommand.finalize_options(self)
-        self.test_args = []
-        self.test_suite = True
-
-    def run_tests(self):
-        # import here, cause outside the eggs aren't loaded
-        import tox
-        import shlex
-        args = self.tox_args
-        if args:
-            args = shlex.split(self.tox_args)
-        errno = tox.cmdline(args=args)
-        sys.exit(errno)
 
 # Convert description from markdown to reStructuredText
 try:
     import pypandoc
-    description = pypandoc.convert('README.md', 'rst')
-except (IOError, ImportError):
+    description = pypandoc.convert('README.md', 'rst', 'markdown')
+except (OSError, ImportError):
     description = ''
+
+
+# Get package version number
+# Source: https://packaging.python.org/single_source_version/
+def read(*names, **kwargs):
+    with io.open(
+        os.path.join(os.path.dirname(__file__), *names),
+        encoding=kwargs.get('encoding', 'utf8')
+    ) as fp:
+        return fp.read()
+
+
+def find_version(*file_paths):
+    version_file = read(*file_paths)
+    version_match = re.search(
+        r"^__version__ = ['\"]([^'\"]*)['\"]",
+        version_file, re.M
+    )
+    if version_match:
+        return version_match.group(1)
+    raise RuntimeError("Unable to find version string.")
 
 
 setup(
@@ -40,7 +42,7 @@ setup(
     url='https://github.com/Pythonity/icon-font-to-png',
     download_url='https://github.com/Pythonity/icon-font-to-png/releases/latest',
     bugtrack_url='https://github.com/Pythonity/icon-font-to-png/issues',
-    version='0.3.6',
+    version=find_version('icon_font_to_png', '__init__.py'),
     license='MIT License',
     author='Pythonity',
     author_email='pythonity@pythonity.com',

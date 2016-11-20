@@ -17,8 +17,8 @@ install:
 
 script:
   - tox
-  - coverage run --source monz -m py.test
-  - coverage report -m
+  - cd icon_font_to_png/test && coverage run --source monz -m py.test
+  - cd icon_font_to_png/test && coverage report -m
 
 after_success:
   - coveralls

@@ -113,10 +113,12 @@ def run(arguments):
         selected_icons = icon_font.css_icons.keys()
     else:
         for icon in args.icons:
-            if args.keep_prefix and not icon.startswith(icon_font.common_prefix):
+            if (args.keep_prefix and
+                    not icon.startswith(icon_font.common_prefix)):
                 # Prepend icon name with prefix
                 icon = icon_font.common_prefix + icon
-            elif not args.keep_prefix and icon.startswith(icon_font.common_prefix):
+            elif (not args.keep_prefix and
+                      icon.startswith(icon_font.common_prefix)):
                 # Remove prefix from icon name
                 icon = icon[len(icon_font.common_prefix):]
 

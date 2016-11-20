@@ -40,7 +40,8 @@ def find_version(*file_paths):
 setup(
     name='icon_font_to_png',
     url='https://github.com/Pythonity/icon-font-to-png',
-    download_url='https://github.com/Pythonity/icon-font-to-png/releases/latest',
+    download_url='https://github.com/Pythonity/icon-font-to-png/releases/'
+                 'latest',
     bugtrack_url='https://github.com/Pythonity/icon-font-to-png/issues',
     version=find_version('icon_font_to_png', '__init__.py'),
     license='MIT License',

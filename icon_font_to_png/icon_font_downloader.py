@@ -78,14 +78,19 @@ class IconFontDownloader(object):
 
 class FontAwesomeDownloader(IconFontDownloader):
     """
-    Font Awesome icon font downloader
+    Font Awesome icon font downloader.
+
     Project page:
         https://fortawesome.github.io/Font-Awesome/
     """
-    css_url = ('https://raw.githubusercontent.com/FortAwesome/'
-               'Font-Awesome/master/css/font-awesome.css')
-    ttf_url = ('https://raw.githubusercontent.com/FortAwesome/'
-               'Font-Awesome/master/fonts/fontawesome-webfont.ttf')
+    css_url = (
+        'https://cdn.rawgit.com/FortAwesome/Font-Awesome/'
+        'master/css/font-awesome.css'
+    )
+    ttf_url = (
+        'https://cdn.rawgit.com/FortAwesome/Font-Awesome/'
+        'master/fonts/fontawesome-webfont.ttf'
+    )
 
     def get_latest_version_number(self):
         return self._get_latest_tag_from_github(
@@ -95,14 +100,22 @@ class FontAwesomeDownloader(IconFontDownloader):
 
 class OcticonsDownloader(IconFontDownloader):
     """
-    Octicons icon font downloader
+    Octicons icon font downloader.
+
+    They unfortunately deleted compiled files from their GitHub repo, so let's
+    get them via CDN fow now.
+
     Project page:
         https://octicons.github.com/
     """
-    css_url = ('https://raw.githubusercontent.com/primer/'
-               'octicons/master/build/font/octicons.css')
-    ttf_url = ('https://raw.githubusercontent.com/primer/'
-               'octicons/master/build/font/octicons.ttf')
+    css_url = (
+        'https://cdnjs.cloudflare.com/ajax/libs/'
+        'octicons/4.4.0/font/octicons.css'
+    )
+    ttf_url = (
+        'https://cdnjs.cloudflare.com/ajax/libs/'
+        'octicons/4.4.0/font/octicons.ttf'
+    )
 
     def get_latest_version_number(self):
         return self._get_latest_tag_from_github(

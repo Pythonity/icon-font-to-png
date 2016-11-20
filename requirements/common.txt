@@ -1,4 +1,4 @@
-pillow>=3.0.0
-tinycss>=0.3
+Pillow>=3.4.2
+requests>=2.12.1
 six>=1.10.0
-requests>=2.10.0
+tinycss>=0.4

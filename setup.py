@@ -53,13 +53,12 @@ setup(
     long_description=description,
     packages=find_packages(),
     include_package_data=True,
-    tests_require=['tox'],
-    cmdclass={'test': Tox},
     install_requires=[
-        'pillow>=3.0.0',
-        'tinycss>=0.3',
+        'Pillow>=3.4.2',
+        'requests>=2.12.1',
         'six>=1.10.0',
-        'requests>=2.10.0',
+        'tinycss>=0.4',
+
     ],
     extras_require={
         'testing': ['pytest'],

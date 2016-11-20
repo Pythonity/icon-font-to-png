@@ -7,4 +7,4 @@ from icon_font_to_png.icon_font_downloader import (  # noqa
 )
 
 
-__version__ = '0.3.6'
+__version__ = '0.3.7'

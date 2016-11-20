@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-import pytest
 import os
 import shutil
+
+import pytest
 
 from icon_font_to_png import command_line
 

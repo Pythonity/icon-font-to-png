@@ -1,12 +1,13 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from six import unichr
 
 import os
 import re
-import tinycss
 from collections import OrderedDict
 
+import tinycss
 from PIL import Image, ImageFont, ImageDraw
+from six import unichr
 
 
 class IconFont(object):

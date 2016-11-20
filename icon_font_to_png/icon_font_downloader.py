@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import os
 from abc import ABCMeta, abstractmethod
 
-import six
 import requests
+import six
 
 if six.PY2:
     from urllib import urlretrieve

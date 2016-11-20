@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-import pytest
 import os
 import shutil
-import uuid
 import tempfile
+import uuid
+
+import pytest
 from PIL import Image, ImageChops
 
 from icon_font_to_png import icon_font

@@ -6,11 +6,7 @@ from abc import ABCMeta, abstractmethod
 
 import requests
 import six
-
-if six.PY2:
-    from urllib import urlretrieve
-elif six.PY3:
-    from urllib.request import urlretrieve
+from six.moves.urllib.request import urlretrieve
 
 
 @six.add_metaclass(ABCMeta)

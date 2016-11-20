@@ -118,7 +118,7 @@ def run(arguments):
                 # Prepend icon name with prefix
                 icon = icon_font.common_prefix + icon
             elif (not args.keep_prefix and
-                      icon.startswith(icon_font.common_prefix)):
+                  icon.startswith(icon_font.common_prefix)):
                 # Remove prefix from icon name
                 icon = icon[len(icon_font.common_prefix):]
 

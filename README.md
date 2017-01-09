@@ -1,5 +1,6 @@
 # Icon Font to PNG
 [![Build status](https://img.shields.io/travis/Pythonity/icon-font-to-png.svg)][travis]
+[![Test coverage](https://img.shields.io/coveralls/Pythonity/icon-font-to-png.svg)][coveralls]
 [![PyPI version](https://img.shields.io/pypi/v/icon_font_to_png.svg)][pypi]
 [![Python versions](https://img.shields.io/pypi/pyversions/icon_font_to_png.svg)][pypi]
 [![License](https://img.shields.io/github/license/Pythonity/icon-font-to-png.svg)][license]
@@ -120,9 +121,11 @@ is unclear.
 Package was tested with the help of `py.test` and `tox` on Python 2.7, 3.4, 3.5
 and 3.6 (see `tox.ini`).
 
+Code coverage is available at [Coveralls][coveralls].
+
 To run tests yourself run `tox` inside the repository:
 
-```
+```shell
 $ pip install -r requirements/dev.txt
 $ tox
 ```
@@ -140,6 +143,7 @@ Original version by [Michał Wojciechowski][odyniec], refactored by
 [Paweł Adamczak][pawelad].
 
 
+[coveralls]: https://coveralls.io/github/Pythonity/icon-font-to-png
 [github]: https://github.com/Pythonity/icon-font-to-png
 [if2p osx bug]: https://github.com/Pythonity/icon-font-to-png/issues/2#issuecomment-197068427
 [license]: https://github.com/Pythonity/icon-font-to-png/blob/master/LICENSE

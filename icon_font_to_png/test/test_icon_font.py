@@ -12,12 +12,15 @@ from PIL import Image, ImageChops
 from icon_font_to_png import icon_font
 
 
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
+
+
 # Fixtures
 @pytest.fixture(scope='module')
 def font_awesome():
     """Create a IconFont instance from Font Awesome files"""
-    css_file = os.path.join('files', 'font-awesome.css')
-    ttf_file = os.path.join('files', 'fontawesome-webfont.ttf')
+    css_file = os.path.join(BASE_DIR, 'files', 'font-awesome.css')
+    ttf_file = os.path.join(BASE_DIR, 'files', 'fontawesome-webfont.ttf')
     return icon_font.IconFont(css_file=css_file, ttf_file=ttf_file)
 
 
@@ -40,12 +43,12 @@ def test_init():
 
 def test_common_prefix():
     """Test finding out what the common prefix is"""
-    css_file = os.path.join('files', 'test-foo.css')
+    css_file = os.path.join(BASE_DIR, 'files', 'test-foo.css')
     obj = icon_font.IconFont(css_file=css_file, ttf_file=None,
                              keep_prefix=True)
     assert obj.common_prefix == 'foo-'
 
-    css_file = os.path.join('files', 'test.css')
+    css_file = os.path.join(BASE_DIR, 'files', 'test.css')
     obj = icon_font.IconFont(css_file=css_file, ttf_file=None,
                              keep_prefix=True)
     assert obj.common_prefix == ''
@@ -58,7 +61,7 @@ def test_common_prefix():
 ])
 def test_size(font_awesome, image, size):
     """Test size option"""
-    original_file = os.path.join('files', image)
+    original_file = os.path.join(BASE_DIR, 'files', image)
 
     font_awesome.export_icon(icon='rocket', size=size)
     exported_file = os.path.join('exported', 'rocket.png')
@@ -81,7 +84,7 @@ def test_size(font_awesome, image, size):
 ])
 def test_color(font_awesome, image, color):
     """Test color option"""
-    original_file = os.path.join('files', image)
+    original_file = os.path.join(BASE_DIR, 'files', image)
 
     font_awesome.export_icon(icon='rocket', size=16, color=color)
     exported_file = os.path.join('exported', 'rocket.png')
@@ -100,7 +103,7 @@ def test_color(font_awesome, image, color):
 ])
 def test_scale(font_awesome, image, scale):
     """Test scale option"""
-    original_file = os.path.join('files', image)
+    original_file = os.path.join(BASE_DIR, 'files', image)
 
     font_awesome.export_icon(icon='rocket', size=16, scale=scale)
     exported_file = os.path.join('exported', 'rocket.png')

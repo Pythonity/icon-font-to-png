@@ -9,11 +9,14 @@ import pytest
 from icon_font_to_png import command_line
 
 
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
+
+
 # Tests
 def test_list_option(capfd):
     """Test listing CSS icons"""
-    css_file = os.path.join('files', 'test-foo.css')
-    ttf_file = os.path.join('files', 'test.ttf')  # Required argument
+    css_file = os.path.join(BASE_DIR, 'files', 'test-foo.css')
+    ttf_file = os.path.join(BASE_DIR, 'files', 'test.ttf')  # Required argument
 
     # No CSS and TTF files
     with pytest.raises(SystemExit):
@@ -46,8 +49,8 @@ def test_list_option(capfd):
 
 def test_icon_export(capfd):
     """Test exporting icons (on Font Awesome files)"""
-    css_file = os.path.join('files', 'font-awesome.css')
-    ttf_file = os.path.join('files', 'fontawesome-webfont.ttf')
+    css_file = os.path.join(BASE_DIR, 'files', 'font-awesome.css')
+    ttf_file = os.path.join(BASE_DIR, 'files', 'fontawesome-webfont.ttf')
 
     # Export none icons
     with pytest.raises(SystemExit):
@@ -90,8 +93,8 @@ def test_icon_export(capfd):
 
 def test_filename_option(capfd):
     """Test filename option"""
-    css_file = os.path.join('files', 'font-awesome.css')
-    ttf_file = os.path.join('files', 'fontawesome-webfont.ttf')
+    css_file = os.path.join(BASE_DIR, 'files', 'font-awesome.css')
+    ttf_file = os.path.join(BASE_DIR, 'files', 'fontawesome-webfont.ttf')
 
     # Export one icon
     command_line.run(

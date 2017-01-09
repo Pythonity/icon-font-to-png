@@ -9,12 +9,15 @@ import pytest
 from icon_font_to_png import icon_font
 
 
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
+
+
 # Fixtures
 @pytest.fixture(scope='module')
 def font_awesome():
     """Create a IconFont instance from Font Awesome files"""
-    css_file = os.path.join('files', 'font-awesome.css')
-    ttf_file = os.path.join('files', 'fontawesome-webfont.ttf')
+    css_file = os.path.join(BASE_DIR, 'files', 'font-awesome.css')
+    ttf_file = os.path.join(BASE_DIR, 'files', 'fontawesome-webfont.ttf')
     return icon_font.IconFont(css_file=css_file, ttf_file=ttf_file)
 
 

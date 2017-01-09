@@ -9,12 +9,15 @@ import pytest
 from icon_font_to_png import icon_font
 
 
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
+
+
 # Fixtures
 @pytest.fixture(scope='module')
 def octicons():
     """Create a IconFont instance from Octicons files"""
-    css_file = os.path.join('files', 'octicons.css')
-    ttf_file = os.path.join('files', 'octicons.ttf')
+    css_file = os.path.join(BASE_DIR, 'files', 'octicons.css')
+    ttf_file = os.path.join(BASE_DIR, 'files', 'octicons.ttf')
     return icon_font.IconFont(css_file=css_file, ttf_file=ttf_file)
 
 

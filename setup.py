@@ -55,8 +55,8 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'Pillow>=3.4.2',
-        'requests>=2.12.1',
+        'Pillow>=4.0.0',
+        'requests>=2.12.4',
         'six>=1.10.0',
         'tinycss>=0.4',
     ],
@@ -77,6 +77,7 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
         'Topic :: Utilities',
     ],
 )

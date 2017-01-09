@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/python,pycharm,osx
 
 ### Python ###
@@ -24,6 +23,7 @@ lib64/
 parts/
 sdist/
 var/
+wheels/
 *.egg-info/
 .installed.cfg
 *.egg
@@ -170,3 +170,5 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# End of https://www.gitignore.io/api/python,pycharm,osx

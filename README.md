@@ -16,11 +16,13 @@ with the [first][odyniec fa2p] iteration of the concept.
 Make sure you have required packages for [Pillow installation][pillow].
 
 From PyPI (recommended):
+
 ```
 $ pip install icon_font_to_png
 ```
 
 With `git clone`:
+
 ```shell
 $ git clone https://github.com/Pythonity/icon-font-to-png
 $ pip install -r icon-font-to-png/requirements.txt
@@ -29,11 +31,13 @@ $ cd icon-font-to-png/bin
 
 ### OS X
 As reported [here][if2p osx bug], to install it on OS X:
+
 ```
 $ pip install icon_font_to_png --ignore-installed six
 ```
 
 ## Usage
+
 ```
 usage: icon-font-to-png [-h] [--list] [--download {font-awesome,octicons}]
                         [--ttf TTF-FILE] [--css CSS-FILE] [--size SIZE]
@@ -69,31 +73,37 @@ exporting icons:
 
 ## Examples
 Download latest Font Awesome:
+
 ```
 $ icon-font-to-png --download font-awesome
 ```
 
 List all available icons:
+
 ```
 $ icon-font-to-png --css font-awesome.css --ttf fontawesome-webfont.ttf --list
 ```
 
 Export 'play' and 'stop' icons, size 64x64:
+
 ```
 $ icon-font-to-png --css font-awesome.css --ttf fontawesome-webfont.ttf --size 64 play stop
 ```
 
 Export all icons in blue:
+
 ```
 $ icon-font-to-png --css font-awesome.css --ttf fontawesome-webfont.ttf --color blue ALL
 ```
 
 Export all icons in blue, but using it's hex value:
+
 ```
 $ icon-font-to-png --css font-awesome.css --ttf fontawesome-webfont.ttf --color '#0000ff' ALL
 ```
 
 Or you can use `font-awesome-to-png`, without css and ttf arguments:
+
 ```
 $ font-awesome-to-png ALL
 ```
@@ -107,11 +117,13 @@ But feel free to ask [me](mailto:pawel.adamczak@sidnet.info) if anything
 is unclear.
 
 ## Tests
-Package was tested with the help of `py.test` and `tox` on Python 2.7, 3.4
-and 3.5 (see `tox.ini`).
+Package was tested with the help of `py.test` and `tox` on Python 2.7, 3.4, 3.5
+and 3.6 (see `tox.ini`).
 
 To run tests yourself run `tox` inside the repository:
+
 ```
+$ pip install -r requirements/dev.txt
 $ tox
 ```
 

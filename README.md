@@ -114,7 +114,7 @@ You can use `IconFont` (and `IconFontDownloader` for that matter)
 directly inside your Python project. There's no documentation as of now,
 but the code is commented and *should* be pretty straightforward to use.
 
-But feel free to ask [me](mailto:pawel.adamczak@sidnet.info) if anything
+That said - feel free to ask [me](mailto:pawel.adamczak@sidnet.info) if anything
 is unclear.
 
 ## Tests
@@ -123,7 +123,7 @@ and 3.6 (see `tox.ini`).
 
 Code coverage is available at [Coveralls][coveralls].
 
-To run tests yourself run `tox` inside the repository:
+To run tests yourself you need to run `tox` inside the repository:
 
 ```shell
 $ pip install -r requirements/dev.txt
@@ -134,7 +134,7 @@ $ tox
 Package source code is available at [GitHub][github].
 
 Feel free to use, ask, fork, star, report bugs, fix them, suggest enhancements,
-add functionality and point out any mistakes.
+add functionality and point out any mistakes. Thanks!
 
 ## Authors
 Developed and maintained by [Pythonity][pythonity].
@@ -147,8 +147,8 @@ Original version by [Michał Wojciechowski][odyniec], refactored by
 [github]: https://github.com/Pythonity/icon-font-to-png
 [if2p osx bug]: https://github.com/Pythonity/icon-font-to-png/issues/2#issuecomment-197068427
 [license]: https://github.com/Pythonity/icon-font-to-png/blob/master/LICENSE
-[odyniec fa2p]: https://github.com/odyniec/font-awesome-to-png
 [odyniec]: https://github.com/odyniec
+[odyniec fa2p]: https://github.com/odyniec/font-awesome-to-png
 [pawelad]: https://github.com/pawelad
 [pillow]: https://pillow.readthedocs.org/en/latest/installation.html
 [pypi]: https://pypi.python.org/pypi/icon_font_to_png

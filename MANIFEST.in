@@ -1,5 +1,6 @@
 include *.md
 include *.txt
+include *.yml
 include LICENSE
 include tox.ini
 recursive-include icon_font_to_png *.css

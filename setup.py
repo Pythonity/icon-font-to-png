@@ -56,7 +56,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'Pillow>=4.0.0',
-        'requests>=2.12.4',
+        'requests>=2.12.5',
         'six>=1.10.0',
         'tinycss>=0.4',
     ],

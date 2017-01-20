@@ -1,7 +1,7 @@
 -r common.txt
 
 check-manifest>=0.34
-coverage>=4.3.1
+coverage>=4.3.4
 coveralls>=1.1
 flake8>=3.2.1
 flaky>=3.3.0

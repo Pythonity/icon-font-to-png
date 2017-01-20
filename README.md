@@ -111,11 +111,11 @@ $ font-awesome-to-png ALL
 
 ## API
 You can use `IconFont` (and `IconFontDownloader` for that matter)
-directly inside your Python project. There's no documentation as of now,
+directly inside your Python project. There's no proper documentation as of now,
 but the code is commented and *should* be pretty straightforward to use.
 
-That said - feel free to ask [me](mailto:pawel.adamczak@sidnet.info) if anything
-is unclear.
+That said - feel free to ask me via [email](mailto:pawel.ad@gmail.com) or 
+[GitHub issues][github add issue] if anything is unclear.
 
 ## Tests
 Package was tested with the help of `py.test` and `tox` on Python 2.7, 3.4, 3.5

@@ -133,6 +133,10 @@ def run(arguments):
     if given_filename.lower().endswith('.png'):
         given_filename = given_filename[:-4]
 
+    # Some fonts have empty values
+    # (prefix only - which we remove - for common styles)
+    selected_icons = list(filter(None, selected_icons))
+
     # Commence exporting
     for icon in selected_icons:
         if len(selected_icons) > 1:

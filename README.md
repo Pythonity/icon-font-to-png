@@ -137,7 +137,7 @@ Feel free to use, ask, fork, star, report bugs, fix them, suggest enhancements,
 add functionality and point out any mistakes. Thanks!
 
 ## Authors
-Developed and maintained by [Pythonity][pythonity].
+Developed and maintained by [Pythonity][pythonity], a group of Python enthusiasts who love open source, have a neat [blog][pythonity blog] and are available [for hire][pythonity].
 
 Original version by [Michał Wojciechowski][odyniec], refactored by 
 [Paweł Adamczak][pawelad].
@@ -152,5 +152,6 @@ Original version by [Michał Wojciechowski][odyniec], refactored by
 [pawelad]: https://github.com/pawelad
 [pillow]: https://pillow.readthedocs.org/en/latest/installation.html
 [pypi]: https://pypi.python.org/pypi/icon_font_to_png
-[pythonity]: http://pythonity.com/
+[pythonity]: https://pythonity.com/
+[pythonity blog]: http://blog.pythonity.com/
 [travis]: https://travis-ci.org/Pythonity/icon-font-to-png

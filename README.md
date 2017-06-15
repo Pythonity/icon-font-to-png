@@ -145,6 +145,7 @@ Original version by [Michał Wojciechowski][odyniec], refactored by
 
 [coveralls]: https://coveralls.io/github/Pythonity/icon-font-to-png
 [github]: https://github.com/Pythonity/icon-font-to-png
+[github add issue]: https://github.com/Pythonity/icon-font-to-png/issues/new
 [if2p osx bug]: https://github.com/Pythonity/icon-font-to-png/issues/2#issuecomment-197068427
 [license]: https://github.com/Pythonity/icon-font-to-png/blob/master/LICENSE
 [odyniec]: https://github.com/odyniec

@@ -60,6 +60,8 @@ class IconFont(object):
                         # Strip quotation marks
                         if re.match("^['\"].*['\"]$", val):
                             val = val[1:-1]
+                        if val[1:] == "":
+                            continue
                         icons[name] = unichr(int(val[1:], 16))
 
         common_prefix = common_prefix or ''

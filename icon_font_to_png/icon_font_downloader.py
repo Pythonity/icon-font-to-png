@@ -84,11 +84,11 @@ class FontAwesomeDownloader(IconFontDownloader):
         https://fortawesome.github.io/Font-Awesome/
     """
     css_url = (
-        'https://cdn.rawgit.com/FortAwesome/Font-Awesome/'
+        'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/'
         'v4.7.0/css/font-awesome.css'
     )
     ttf_url = (
-        'https://cdn.rawgit.com/FortAwesome/Font-Awesome/'
+        'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/'
         'v4.7.0/fonts/fontawesome-webfont.ttf'
     )
 
